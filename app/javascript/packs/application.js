@@ -7,6 +7,11 @@ import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
+import "jquery";//BootStrap導入の際に記述↓
+import "popper.js";
+import "bootstrap";
+import "../stylesheets/application" //BootStrap導入の際に記述↑
+import '@fortawesome/fontawesome-free/js/all'//FontAwesome導入の際に記述//
 
 Rails.start()
 Turbolinks.start()
