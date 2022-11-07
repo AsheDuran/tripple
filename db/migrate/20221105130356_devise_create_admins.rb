@@ -14,8 +14,6 @@ class DeviseCreateAdmins < ActiveRecord::Migration[6.1]
       ## Rememberable
       t.datetime :remember_created_at
 
-      t.boolean :is_deleted, null: false, default: false#会員ステータスはこっちに記述
-
       ## Trackable
       # t.integer  :sign_in_count, default: 0, null: false
       # t.datetime :current_sign_in_at

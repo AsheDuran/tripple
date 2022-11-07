@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="row mt-2">
+    <div class="col" >
+
+        <div class="row mt-4"></div>
+        <div class="footer_menu">
+          <% if end_user_signed_in? %>
+
+            <%= link_to derivation_path ,class: 'text-light' do %>
+              <strong>サイト由来</strong>
+            <% end %>
+
+            &nbsp;&nbsp;&nbsp;&nbsp;
+
+            <%= link_to outline_path ,class: 'text-light' do %>
+              <strong>サイト概要<strong>
+            <% end %>
+
+             &nbsp;&nbsp;&nbsp;&nbsp;
+
+            <%= link_to destroy_end_user_session_path, method: :delete,class: 'text-light' do %>
+              <strong>ログアウト</strong>
+            <% end %>
+
+          <% else %>
+
+            <%= link_to derivation_path ,class: 'text-light' do %>
+              <strong>サイト由来</strong>
+            <% end %>
+
+            &nbsp;&nbsp;&nbsp;&nbsp;
+
+            <%= link_to outline_path ,class: 'text-light' do %>
+              <strong>サイト概要</strong>
+            <% end %>
+
+          <% end %>
+      </div>
+    </div>
+  </div>
+</div>

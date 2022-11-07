@@ -7,13 +7,17 @@
     <%= csp_meta_tag %>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %><!--BootStrap導入の際記述変更-->
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %><!--BootStrap導入の際記述変更-->
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <!--stylesheet_pack_tagはJavaScript/packsのを読み込み、 stylesheet_link_tagはassetsの方を読み込む。-->
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="https://cdn.jsdelivr.net/npm/skipper-slider@1.2.1/dist/skippr.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/skipper-slider@1.2.1/dist/skippr.css">
   </head>
 
   <body>
-    <header><%= render 'header' %></header>
+    <header><%= render 'layouts/header' %></header>
     <main><%= yield %></main>
-    <body><%= 'footer' %></body>
+    <footer><%= render 'layouts/footer' %></footer>
   </body>
 </html>

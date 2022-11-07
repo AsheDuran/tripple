@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="row mt-5">
+    <div class="col text-center"><h2>みんなの投稿</h2></div>
+  </div>
+
+  <div class="row mt-2">
+    <div class="spot-list">
+      <div class ="row">
+        <%  @spots.each do |spot| %>
+          <div class="col-5 p-3">
+            <div class="spot_list">
+              <p>
+                <%= link_to public_spot_path(spot) do %>
+                  <%= image_tag spot.get_image(200, 200) %><br>
+                  <%= spot.name %>
+                <% end %>
+              </p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

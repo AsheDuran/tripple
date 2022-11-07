@@ -1,0 +1,53 @@
+  <nav class="navbar navbar-expand-lg navbar-light mb-2" style="background-color:#66cdaa;">
+    <div class="container">
+      <a class="navbar-brand p-3" href="/"><%= image_tag 'logo.png',size:150, class: 'logo' %></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav ml-auto">
+          <% if end_user_signed_in? %>
+
+            <li>
+              <%= link_to public_my_page_path ,class: 'nav-link text-light' do %>
+               <div class="nav-btn"><strong>マイページ</strong></div>
+              <% end %>
+            </li>
+
+            <li>
+              <%= link_to  new_public_spot_path ,class: 'nav-link text-light' do %>
+                <div class="nav-btn"><strong>投稿する</strong></div>
+              <% end %>
+            </li>
+
+            <li>
+              <%= link_to  public_spots_path ,class: 'nav-link text-light' do %>
+                <div class="nav-btn"><strong>みんなの投稿一覧</strong></div>
+              <% end %>
+            </li>
+
+          <% else %>
+
+            <li>
+              <%= link_to new_end_user_session_path ,class: 'nav-link text-light' do %>
+                <div class="nav-btn"><strong>ログイン</strong></div>
+              <% end %>
+            </li>
+
+            <li>
+              <%= link_to new_end_user_registration_path ,class: 'nav-link text-light' do %>
+                <div class="nav-btn"><strong>新規会員登録</strong></div>
+              <% end %>
+            </li>
+
+            <li>
+              <%= link_to  public_spots_path ,class: 'nav-link text-light' do %>
+                <div class="nav-btn"><strong>みんなの投稿一</strong></div>
+              <% end %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </nav>
