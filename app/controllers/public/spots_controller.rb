@@ -13,23 +13,29 @@ class Public::SpotsController < ApplicationController
 
   def show
     @spot = Spot.find(params[:id])
+    @end_user = @spot.end_user
+    #byebug
   end
 
   def index
     @spots = Spot.all
   end
-  
+
   def edit
     @spot = Spot.find(params[:id])
   end
 
- def update
-  @spot = Spot.find(params[:id])
-  @spot.update(spot_params)
-  redirect_to public_spot_path(@spot)
- end
+  def update
+    @spot = Spot.find(params[:id])
+    @spot.update(spot_params)
+    redirect_to public_spot_path(@spot)
+  end
 
-
+  def  destroy
+    @spot = Spot.find(params[:id])
+    @spot.destroy
+    redirect_to public_spots_path
+  end
 
 
 

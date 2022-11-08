@@ -33,4 +33,10 @@ class Public::SessionsController < Devise::SessionsController
       root_path
   end
 
+  def guest_sign_in # ゲストログインの際に記述
+    end_user = EndUser.guest
+    sign_in end_user   # ユーザーをログインさせる
+    redirect_to root_path, notice: 'ゲストユーザーとしてログイン成功'
+  end
+
 end

@@ -22,6 +22,24 @@
               <strong>ログアウト</strong>
             <% end %>
 
+          <% elsif admin_signed_in? %>
+
+            <%= link_to derivation_path ,class: 'text-light' do %>
+              <strong>サイト由来</strong>
+            <% end %>
+
+            &nbsp;&nbsp;&nbsp;&nbsp;
+
+            <%= link_to outline_path ,class: 'text-light' do %>
+              <strong>サイト概要<strong>
+            <% end %>
+
+             &nbsp;&nbsp;&nbsp;&nbsp;
+
+            <%= link_to  destroy_admin_session_path, method: :delete,class: 'text-light' do %>
+              <strong>ログアウト</strong>
+            <% end %>
+
           <% else %>
 
             <%= link_to derivation_path ,class: 'text-light' do %>
@@ -33,7 +51,11 @@
             <%= link_to outline_path ,class: 'text-light' do %>
               <strong>サイト概要</strong>
             <% end %>
-
+            
+            <%= link_to new_admin_session_path ,class: 'admin_signed_in_command text-right' do %>
+              <p>◆</p>
+            <% end %>           
+            
           <% end %>
       </div>
     </div>

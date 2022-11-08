@@ -1,0 +1,24 @@
+<h4>会員情報</h4>
+
+<%= image_tag end_user.get_profile_image(200,200) %>
+
+<table class="table">
+  <tbody>
+    <tr></tr>
+    <tr>
+      <th>会員名</th>
+      <th><%= end_user.name %></th><!--modelで疑似的にnameを定義しているため、nameが使用可能-->
+    </tr>
+    <tr>
+      <th>自己紹介文</th>
+      <th><%= end_user.introduction %></th>
+    </tr>
+  </tbody>
+</table>
+<div class="col-md-1">
+  <% if end_user.id == current_end_user.id %>
+    <%= link_to edit_public_end_user_path(@end_user) do %>
+      <button type="button" class=" btn-circle-flat  btn-circle">✎</button>
+    <% end %>
+  <% end %>
+</div>

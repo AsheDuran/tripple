@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 mx-auto my-5">
+      <h4>会員一覧</h4>
+
+      <div class="row mt-3">
+        <div class="col-md-10 mx-auto">
+          <table class="table">
+            <thead>
+              <tr>
+                <th class="text-center" style="width: 15% ">会員ID</th>
+                <th class="text-center" style="width: 30%">会員名</th>
+                <th class="text-center" style="width: 20%">ステータス</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @end_users.each do |end_user| %>
+                <tr>
+                  <td class="text-center"><%= end_user.id %></td>
+                  <td class="text-center">
+                    <%= link_to admin_end_user_path(end_user) do %>
+                      <u class="text-dark"><%= end_user.last_name %><%= end_user.first_name %></u>
+                    <% end %>
+                  </td>
+                  <td class="text-center">
+                    <% if end_user.is_deleted == false %>
+                      <div class="text-success"><strong>有効</strong></div>
+                    <% else %>
+                      <div class="text-muted"><strong>退会</strong></div>
+                    <% end %>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

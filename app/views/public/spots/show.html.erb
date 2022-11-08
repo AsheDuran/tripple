@@ -1,29 +1,38 @@
 <div class="container">
   <div class="row mt-4">
     <div class="col-md-2">
-      <h2>商品詳細</h2>
+      <h2>投稿詳細</h2>
     </div>
-    <div class="col-md-8"></div>
-    <div class="col-md-1">
-      <%= link_to edit_public_spot_path do %>
-        <button type="button" class=" btn-circle-flat  btn-circle">✎</button>  <!--i class="fas fa-home"></i-->
-      <% end %>
-    </div>
+
+    <div class="col-md-7"></div>
+
     <div class="col-md-1">
       <%= link_to public_spots_path do %>
-        <button type="button" class=" btn-circle-flat  btn-circle">🔙</button>  <!--i class="fas fa-home"></i-->
+        <button type="button" class=" btn-circle-flat  btn-circle">🔙</button>
       <% end %>
     </div>
+
+    <% if @spot.end_user == current_end_user %>
+      <div class="col-md-1">
+        <%= link_to edit_public_spot_path(@spot.id) do %>
+          <button type="button" class=" btn-circle-flat  btn-circle">✎</button>
+        <% end %>
+      </div>
+
+      <div class="col-md-1">
+        <%= link_to public_spot_path(@spot.id), method: :delete, "data-confirm" => "本当に削除しますか？" do %>
+          <button type="button" class=" btn-circle-flat  btn-circle">×</button>
+        <% end %>
+      </div>
+    <% end %>
   </div>
 
-  <div class="row"><div class ="col"></div></div>
-
-  <div class="row mb-4">
+  <div class="row mt-3 mb-4">
     <div class="col-md-6">
       <%= image_tag @spot.get_image(500, 500), class: 'img-fluid' %>
     </div>
 
-    <div class="col-md-5 offset-md-1">
+    <div class="col-md-5">
 
       <div class ="row">
         <div class ="col-4">
@@ -75,9 +84,14 @@
           <p>投稿者名</p>
          </div>
         <div class ="col-8">
-          <%= link_to root_path do %>
+          <% if @spot.end_user.id == current_end_user.id %>
             <%= image_tag @spot.end_user.get_profile_image(100, 100) %>
-            <%= @spot.end_user.name %>
+            自分
+          <% else %>
+            <%= link_to public_end_user_path(@end_user) do %>
+              <%= image_tag @spot.end_user.get_profile_image(100, 100) %>
+              <%= @spot.end_user.name %>
+            <% end %>
           <% end %>
       </div>
     </div>

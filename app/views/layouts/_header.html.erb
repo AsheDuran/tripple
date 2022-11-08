@@ -10,7 +10,7 @@
           <% if end_user_signed_in? %>
 
             <li>
-              <%= link_to public_my_page_path ,class: 'nav-link text-light' do %>
+              <%= link_to my_page_public_end_users_path ,class: 'nav-link text-light' do %>
                <div class="nav-btn"><strong>マイページ</strong></div>
               <% end %>
             </li>
@@ -27,6 +27,25 @@
               <% end %>
             </li>
 
+          <% elsif admin_signed_in? %>
+          <li>
+            <%=  link_to admin_end_users_path ,class: 'nav-link text-light' do %>
+              <div class="nav-btn"><strong>会員一覧</strong></div>
+            <% end %>
+          </li>
+
+          <!--<li>-->
+          <!--  <#%=  link_to admin_genres_path,class: 'nav-link text-light' do %>-->
+          <!--    <div class="nav-btn">ジャンル一覧</div>-->
+          <!--  <#% end %>-->
+          <!--</li>-->
+
+          <li>
+            <%= link_to  public_spots_path ,class: 'nav-link text-light' do %>
+              <div class="nav-btn"><strong>みんなの投稿一覧</strong></div>
+            <% end %>
+          </li>
+
           <% else %>
 
             <li>
@@ -38,6 +57,12 @@
             <li>
               <%= link_to new_end_user_registration_path ,class: 'nav-link text-light' do %>
                 <div class="nav-btn"><strong>新規会員登録</strong></div>
+              <% end %>
+            </li>
+
+            <li>
+              <%= link_to end_users_guest_sign_in_path , method: :post, class: 'nav-link text-light' do %>
+                <div class="nav-btn"><strong>ゲストログイン</strong></div>
               <% end %>
             </li>
 

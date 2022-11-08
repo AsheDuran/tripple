@@ -8,5 +8,5 @@ class HomesController < ApplicationController
   
   def outline
   end
-
+  
 end

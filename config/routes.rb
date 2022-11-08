@@ -6,6 +6,10 @@ Rails.application.routes.draw do
     sessions: 'public/sessions'
   }#生成したコントローラーがどこに存在するかを記述
 
+  devise_scope :end_user do#guest_sign_in機能の際追加
+    post 'end_users/guest_sign_in', to: 'public/sessions#guest_sign_in'
+  end
+
   devise_for :admins, skip: [:registrations, :passwords], controllers: {#skipオプションで不要なルーティングを削除
     sessions: "admin/sessions"
   }#生成したコントローラーがどこに存在するかを記述
@@ -18,8 +22,15 @@ Rails.application.routes.draw do
     resources :spots
     resources :prefectures
     resources :genres
-    get "end_users/my_page" => "end_users#my_page", as: "my_page"
+    resources :end_users do#controllerでmy_pageを定義したからdo-endの間にget :my_page, on: :collectionを記述
+      get :my_page, on: :collection
+    end
+  end
+
+  namespace :admin do
+
     resources :end_users
+
   end
 
 
