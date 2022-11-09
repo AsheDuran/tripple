@@ -1,0 +1,13 @@
+<h2 class="mt-5">ジャンル一覧</h2>
+<table class="table">
+  <tbody>
+    <% genres.each do |genre| %>
+    <tr>
+      <th><%= genre.name %></th>
+      <th></th>
+      <th></th>
+      <th><%= link_to '削除',  admin_genre_path(genre), method: :delete, class:'btn btn-danger btn-block' %></th>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

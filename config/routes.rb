@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-
   devise_for :end_users, path: :public, skip: [:passwords], controllers: {#skipオプションで不要なルーティングを削除
     registrations: "public/registrations",
     sessions: 'public/sessions'
@@ -19,7 +18,11 @@ Rails.application.routes.draw do
   get "home/outline"=>"homes#outline", as: "outline"
 
   namespace :public do
-    resources :spots
+    get '/end_users/unsubscribe' => 'end_users#unsubscribe', as: 'unsubscribe'
+    patch '/end_users/withdraw' => 'end_users#withdraw', as: 'withdraw'
+    resources :spots do
+      resource :favorites, only: [:create, :destroy]
+    end
     resources :prefectures
     resources :genres
     resources :end_users do#controllerでmy_pageを定義したからdo-endの間にget :my_page, on: :collectionを記述
@@ -28,9 +31,13 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-
+    # get '/end_users/unsubscribe' => 'end_users#unsubscribe', as: 'unsubscribe'
+    # patch '/end_users/withdraw' => 'end_users#withdraw', as: 'withdraw'
     resources :end_users
-
+    resources :spots do
+      resource :favorites, only:[:create, :destroy]
+    end
+    resources :genres
   end
 
 

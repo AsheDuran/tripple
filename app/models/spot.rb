@@ -3,7 +3,7 @@ class Spot < ApplicationRecord
   belongs_to :prefecture
   belongs_to :genre
   belongs_to :end_user
-
+  has_many :favorites, dependent: :destroy
 
   has_one_attached :image
 
@@ -15,5 +15,7 @@ class Spot < ApplicationRecord
     image.variant(resize_to_limit: [width, height]).processed
   end
 
-
+  def favorited_by?(end_user)#favorited_by?メソッドでいいねを既に押しているか、押していないか判断
+    favorites.exists?(end_user_id: end_user.id)
+  end
 end

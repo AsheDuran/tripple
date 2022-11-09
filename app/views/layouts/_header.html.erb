@@ -34,15 +34,15 @@
             <% end %>
           </li>
 
-          <!--<li>-->
-          <!--  <#%=  link_to admin_genres_path,class: 'nav-link text-light' do %>-->
-          <!--    <div class="nav-btn">ジャンル一覧</div>-->
-          <!--  <#% end %>-->
-          <!--</li>-->
+          <li>
+            <%=  link_to admin_genres_path,class: 'nav-link text-light' do %>
+              <div class="nav-btn"><strong>ジャンル一覧</strong></div>
+            <% end %>
+          </li>
 
           <li>
-            <%= link_to  public_spots_path ,class: 'nav-link text-light' do %>
-              <div class="nav-btn"><strong>みんなの投稿一覧</strong></div>
+            <%= link_to admin_spots_path ,class: 'nav-link text-light' do %>
+              <div class="nav-btn"><strong>会員投稿一覧</strong></div>
             <% end %>
           </li>
 

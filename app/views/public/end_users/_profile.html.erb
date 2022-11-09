@@ -15,10 +15,9 @@
     </tr>
   </tbody>
 </table>
-<div class="col-md-1">
+
+<div class="col-md-5">
   <% if end_user.id == current_end_user.id %>
-    <%= link_to edit_public_end_user_path(@end_user) do %>
-      <button type="button" class=" btn-circle-flat  btn-circle">✎</button>
-    <% end %>
+    <%= link_to "会員情報編集", edit_public_end_user_path(@end_user), class: "btn btn-success text-center" %>
   <% end %>
 </div>

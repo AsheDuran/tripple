@@ -4,7 +4,9 @@ class EndUser < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+    belongs_to :genre
     has_many :spots, dependent: :destroy
+    has_many :favorites, dependent: :destroy
     has_one_attached :profile_image
 
 

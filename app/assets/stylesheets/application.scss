@@ -60,3 +60,13 @@ footer{
 .admin_signed_in_command {
   color: #66cdaa;
 }
+
+body {
+  display: flex;
+  flex-flow: column;
+  min-height: 100vh;
+}
+// ↑↓はfooterを固定するために記述
+main {
+  flex: 1;
+}

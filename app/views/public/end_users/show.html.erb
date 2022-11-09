@@ -1,12 +1,14 @@
 <div class='container px-5 px-sm-0'>
   <div class='row'>
     <div class='col-4 mt-5'>
+    <% if @end_user.id == current_end_user.id %>
       <h2>マイページ</h2>
+    <% end %>
     </div>
   </div>
 
   <div class='row'>
-    <div class='col-5 mt-2'>
+    <div class='col-5 mt-2 mb-5'>
       <%= render 'profile', end_user: @end_user %>
     </div>
 

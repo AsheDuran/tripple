@@ -7,24 +7,25 @@
     <div class="col-md-7"></div>
 
     <div class="col-md-1">
-      <%= link_to public_spots_path do %>
+      <%= link_to admin_spots_path do %>
         <button type="button" class=" btn-circle-flat  btn-circle">🔙</button>
       <% end %>
     </div>
 
-    <% if @spot.end_user == current_end_user %>
+    <% if @spot.end_user == current_admin.id %>
       <div class="col-md-1">
         <%= link_to edit_public_spot_path(@spot.id) do %>
           <button type="button" class=" btn-circle-flat  btn-circle">✎</button>
         <% end %>
       </div>
+    <% end %>
 
       <div class="col-md-1">
-        <%= link_to public_spot_path(@spot.id), method: :delete, "data-confirm" => "本当に削除しますか？" do %>
+        <%= link_to admin_spot_path(@spot.id), method: :delete, "data-confirm" => "本当に削除しますか？" do %>
           <button type="button" class=" btn-circle-flat  btn-circle">×</button>
         <% end %>
       </div>
-    <% end %>
+
   </div>
 
   <div class="row mt-3 mb-4">
@@ -79,25 +80,16 @@
         </div>
       </div>
 
-      <%= render 'favorites_show', spot: @spot %>
-
       <div class ="row">
         <div class ="col-4">
           <p>投稿者名</p>
          </div>
         <div class ="col-8">
-          <% if @spot.end_user.id == current_end_user.id %>
-            <%= image_tag @spot.end_user.get_profile_image(100, 100) %>
-            自分
-          <% else %>
-            <%= link_to public_end_user_path(@end_user) do %>
+            <%= link_to admin_end_user_path(@end_user) do %>
               <%= image_tag @spot.end_user.get_profile_image(100, 100) %>
               <%= @spot.end_user.name %>
             <% end %>
-          <% end %>
-
-        </div>
       </div>
     </div>
   </div>
-</div>
+ </div>
