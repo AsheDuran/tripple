@@ -6,8 +6,8 @@
   <% if spot.favorited_by?(current_end_user) %><!--spot.rbに定義-->
   <div class ="col-1">
     <p>
-      <%= link_to  public_spot_favorites_path(spot), method: :delete do %>
-        ♥
+      <%= link_to  public_spot_favorites_path(spot), method: :delete, remote: true do %>
+        ♥<!--remote: trueは非同期の際に追加。JavaScript形式のリクエストが送信される。-->
     </p>
   </div>
   <div class ="col-4">
@@ -17,9 +17,9 @@
     </p>
   </div>
   <% else %>
-  <div class ="col-4">
+  <div class ="col-1">
     <p>
-      <%= link_to public_spot_favorites_path(spot), method: :post do %>
+      <%= link_to public_spot_favorites_path(spot), method: :post, remote: true do %>
         ♡
     </p>
   </div>

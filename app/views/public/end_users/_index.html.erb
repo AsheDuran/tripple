@@ -11,9 +11,8 @@
   <tbody>
     <% spots.each do |spot| %>
       <tr>
-        <td> <%= link_to spot.name, public_spot_path(spot.id) %></td>
-        <td></td>
-        <td></td>
+        <td><%= link_to spot.name, public_spot_path(spot.id) %></td>
+        <td><%= spot.favorites.count %> いいね</td>
         <td></td>
       </tr>
     <% end %>

@@ -13,6 +13,8 @@ import "bootstrap";
 import "../stylesheets/application" //BootStrap導入の際に記述↑
 import '@fortawesome/fontawesome-free/js/all'//FontAwesome導入の際に記述//
 
+
+
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()

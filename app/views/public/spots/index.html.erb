@@ -2,13 +2,16 @@
   <div class="row mt-5">
     <div class="col text-center"><h2>みんなの投稿</h2></div>
   </div>
+
   <div class="row mt-2">
     <%  @spots.each do |spot| %>
-      <div class="spot_list col-3">
+      <div class="spot_index col-3">
         <%= link_to public_spot_path(spot) do %>
           <%= image_tag spot.get_image(200, 200) %><br>
           <%= spot.name %>
         <% end %>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <%= render 'favorites_index', spot: spot, class:"favorite_btn_index"%>
       </div>
     <% end %>
   </div>
