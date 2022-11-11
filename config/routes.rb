@@ -37,6 +37,7 @@ Rails.application.routes.draw do
     resources :end_users
     resources :spots do
       resource :favorites, only:[:create, :destroy]
+      resources :comments, only: [:destroy]
     end
     resources :genres
   end

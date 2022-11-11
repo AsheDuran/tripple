@@ -1,0 +1,36 @@
+<div class ="row">
+  <div class= "col-9"></div>
+</div>
+
+<div class ="row">
+  <div class= "col-9">
+    <p>コメント件数：<%= spot.comments.count %></p>
+  </div>
+</div>
+
+<div class ="row">
+<% spot.comments.each do |comment| %>
+  <div class ="col-3">
+    <%= image_tag comment.end_user.get_profile_image(100,100) %>
+  </div>
+  <div class ="col-3">
+    <%= comment.end_user.name %>
+
+      <%= link_to "削除", admin_spot_comment_path(comment.spot.id, comment.id), method: :delete %>
+
+
+  </div>
+  <div class ="col-6">
+    <div class ="row">
+      <div class ="col">
+        <%= comment.created_at.strftime('%Y/%m/%d') %>
+      </div>
+    </div>
+    <div class ="row">
+      <div class ="col">
+        <%= comment.comment %>
+      </div>
+    </div>
+  </div>
+<% end %>
+</div>
