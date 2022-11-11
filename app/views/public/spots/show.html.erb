@@ -95,10 +95,11 @@
               <%= @spot.end_user.name %>
             <% end %>
           <% end %>
-          <%= render 'public/comments/new', spot: @spot, comment: @comment %>
+
         </div>
       </div>
 
+      <%= render 'public/comments/new', spot: @spot, comment: @comment %>
     </div>
   </div>
 </div>

@@ -22,7 +22,7 @@ Rails.application.routes.draw do
     patch '/end_users/withdraw' => 'end_users#withdraw', as: 'withdraw'
     resources :spots do
       resource :favorites, only: [:create, :destroy]
-      resource :comments, only: [:create]
+      resources :comments, only: [:create, :destroy]
     end
     resources :prefectures
     resources :genres

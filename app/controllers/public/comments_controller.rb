@@ -8,6 +8,12 @@ class Public::CommentsController < ApplicationController
     # comment.end_user_id = current_end_user.id
     comment.spot_id = spot.id
     comment.save
+    redirect_to public_spot_path(spot)
+  end
+
+  def destroy
+    Comment.find_by(id: params[:id],spot_id: params[:spot_id]).destroy
+    #byebug
     redirect_to public_spots_path
   end
 
