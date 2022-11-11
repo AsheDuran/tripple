@@ -71,3 +71,14 @@ main {
 .derivation_font {
   font-family: cursive, 游ゴシック;
 }
+
+.outline_visual {
+  width: 100%;
+  height: 500px;
+  justify-content: center;
+  align-items: center;
+  background-image: image-url("amano.png");
+  background-size: cover;
+  background-position: center;
+  font-family: 游ゴシック;
+}
