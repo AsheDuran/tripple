@@ -79,7 +79,7 @@
         </div>
       </div>
 
-      <%= render 'favorites_show', spot: @spot, class: "favorite_btn" %>
+        <%= render 'favorites_show', spot: @spot, class: "favorite_btn" %>
 
       <div class ="row">
         <div class ="col-4">
@@ -95,9 +95,13 @@
               <%= @spot.end_user.name %>
             <% end %>
           <% end %>
-
+          <%= render 'public/comments/new', spot: @spot, comment: @comment %>
         </div>
       </div>
+
     </div>
   </div>
 </div>
+
+<!--<div id="favorite_btn_<%#= @spot.id %>">-->
+<!--<%#= render 'favorites_show', spot: @spot%>-->

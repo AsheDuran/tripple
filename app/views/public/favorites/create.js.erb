@@ -1,3 +1,7 @@
 $(".favorite_btn").html("<%= j(render 'spots/show', spot: @spot) %>");
 
-$(".favorite_btn_index").html("<%= j(render 'spots/index', spot: @spot) %>");
+
+<!--$(".favorite_btn_index").html("<%#= j(render 'spots/index', spot: @spot) %>");-->
+
+<!--$('#favorite_btn_<%#= @spot.id %>').html("<%#= j(render partial: 'spots/show', locals: {spot: @spot}) %>");-->
+

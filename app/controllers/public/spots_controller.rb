@@ -15,6 +15,7 @@ class Public::SpotsController < ApplicationController
     @spot = Spot.find(params[:id])
     @end_user = @spot.end_user
     #byebug
+    @comment = Comment.new
   end
 
   def index
