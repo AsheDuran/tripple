@@ -34,6 +34,14 @@ class Public::EndUsersController < ApplicationController
    redirect_to root_path
  end
 
+ def favorites
+   @end_user = current_end_user
+   favorites= Favorite.where(end_user_id: @end_user.id).pluck(:spot_id)
+   #エンドユーザーidが、このエンドユーザーの、いいねのレコードを全て取得して、そのspot_idも一緒に持ってくる。それをfavoritesに代入。
+   #where:与えられた条件にマッチするレコードを全て取得。
+   @favorite_spots = Spot.find(favorites)
+ end
+
 
  private
 

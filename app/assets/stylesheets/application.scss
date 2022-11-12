@@ -82,3 +82,21 @@ main {
   background-position: center;
   font-family: 游ゴシック;
 }
+
+.favorite_index {
+  display: inline-block;
+  // text-decoration: none;
+  background: #f5fffa;
+  color: #ff0000;
+  width: 30px;
+  // height: 30px;
+  line-height: 30px;
+  border-radius: 50%;
+  text-align: center;
+  // font-weight: bold;
+  // overflow: hidden;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.50);
+  // border-bottom: solid 3px #f0ffff;
+  // transition: .4s;
+  border: none;
+}

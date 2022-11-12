@@ -1,23 +1,8 @@
 if ($(".favorite_btn")) {
   $(".favorite_btn").html("<%= j(render 'public/spots/favorites_show', spot: @spot) %>");
 }
-
+<!--コントローラは一緒なので、ここに２文記述。上でif文使っているのは下の文と区別するため。-->
 
 <!--$(".favorite_btn_index").html("<%#= j(render 'public/spots/favorites_index', spot: @spot) %>");-->
 $('#favorite_btn_index_<%= @spot.id %>').html("<%= j(render 'public/spots/favorites_index', spot: @spot) %>");
 
-<!--if () {-->
-<!--  do something-->
-<!--} else if () {-->
-<!--  do something-->
-<!--} else {-->
-<!--  do something-->
-<!--}-->
-
-<!--if (condition) {-->
-
-<!--}-->
-
-<!--if condition-->
-<!--  do something-->
-<!--end-->

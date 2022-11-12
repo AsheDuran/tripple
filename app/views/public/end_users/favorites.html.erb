@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="row mt-5">
+    <div class="col"><h2>いいね一覧</h2></div>
+  </div>
+
+  <div class="row mt-2">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th style="text-align:center">画像</th>
+          <th style="text-align:center">名称</th>
+          <th style="text-align:center">いいね数</th>
+          <th style="text-align:center">おすすめ度</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @favorite_spots.each do |spot|%>
+          <tr>
+            <td style="text-align:center">
+              <%= link_to public_spot_path(spot) do %>
+                <%= image_tag spot.get_image(100, 100) %>
+              <% end %>
+            </td>
+            <td style="text-align:center"><%=spot.name %></td>
+            <td style="text-align:center"><%= spot.favorites.count %></td>
+            <td style="text-align:center"> </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    </div>
+ </div>

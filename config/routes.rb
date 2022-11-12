@@ -28,6 +28,7 @@ Rails.application.routes.draw do
     resources :genres
     resources :end_users do#controllerでmy_pageを定義したからdo-endの間にget :my_page, on: :collectionを記述
       get :my_page, on: :collection
+      get :favorites
     end
   end
 
