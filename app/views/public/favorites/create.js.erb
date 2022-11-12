@@ -1,7 +1,23 @@
-$(".favorite_btn").html("<%= j(render 'spots/show', spot: @spot) %>");
+if ($(".favorite_btn")) {
+  $(".favorite_btn").html("<%= j(render 'public/spots/favorites_show', spot: @spot) %>");
+}
 
 
-<!--$(".favorite_btn_index").html("<%#= j(render 'spots/index', spot: @spot) %>");-->
+<!--$(".favorite_btn_index").html("<%#= j(render 'public/spots/favorites_index', spot: @spot) %>");-->
+$('#favorite_btn_index_<%= @spot.id %>').html("<%= j(render 'public/spots/favorites_index', spot: @spot) %>");
 
-<!--$('#favorite_btn_<%#= @spot.id %>').html("<%#= j(render partial: 'spots/show', locals: {spot: @spot}) %>");-->
+<!--if () {-->
+<!--  do something-->
+<!--} else if () {-->
+<!--  do something-->
+<!--} else {-->
+<!--  do something-->
+<!--}-->
 
+<!--if (condition) {-->
+
+<!--}-->
+
+<!--if condition-->
+<!--  do something-->
+<!--end-->
