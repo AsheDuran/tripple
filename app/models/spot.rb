@@ -5,6 +5,7 @@ class Spot < ApplicationRecord
   belongs_to :end_user
   has_many :favorites, dependent: :destroy
   has_many :comments, dependent: :destroy
+  # has_many :favorited_end_users, through: :favorites, source: :end_user#いいね数ランキングで記述
 
   has_one_attached :image
 

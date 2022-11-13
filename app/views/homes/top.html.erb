@@ -5,10 +5,10 @@
       <h3>まだ知らない日本の良さを発見してみませんか？</h3>
       <p>↓今月のいいね数が多い投稿↓</p>
 
-      <div id="skippr" style="height: 500px;">
-        <!--<% (1..5).each do |image| %>インスタンス変数入れる-->
+      <div id="skippr" style="height: 500px;margin: 0 auto;">
+      　　<% @spots.each do |spot| %><!--インスタンス変数入れる-->
           <div>
-            <%= image_tag "kenrokuen.png", class: 'img-fluid' %>
+            <%= image_tag spot.image, class: 'img-cover' %>
           </div>
         <% end %>
       </div>

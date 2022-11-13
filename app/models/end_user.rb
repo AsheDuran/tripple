@@ -8,6 +8,7 @@ class EndUser < ApplicationRecord
     has_many :spots, dependent: :destroy
     has_many :favorites, dependent: :destroy
     has_many :comments, dependent: :destroy
+    # has_many :favorited_spots, through: :favorites, source: :spot#いいね数ランキングで記述
     has_one_attached :profile_image
 
 
@@ -21,7 +22,7 @@ class EndUser < ApplicationRecord
 
   def name
     # self.first_name + ' ' + self.last_name と同義で#{}はRubyの式展開
-    "#{self.first_name} #{self.last_name}"
+    "#{self.last_name} #{self.first_name}"
   end
 
   def self.guest

@@ -100,3 +100,9 @@ main {
   // transition: .4s;
   border: none;
 }
+
+.img-cover {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+}
