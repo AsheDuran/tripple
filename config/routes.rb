@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   root to: "homes#top"
   get "home/derivation"=>"homes#derivation", as: "derivation"
   get "home/outline"=>"homes#outline", as: "outline"
+  get "search" => "searches#search"#検索機能で追加
 
   namespace :public do
     get '/end_users/unsubscribe' => 'end_users#unsubscribe', as: 'unsubscribe'

@@ -1,4 +1,4 @@
-  <nav class="navbar navbar-expand-lg navbar-light mb-2" style="background-color:#66cdaa;">
+  <nav class="navbar navbar-expand-lg navbar-light mb-2">
     <div class="container">
       <a class="navbar-brand p-3" href="/"><%= image_tag 'logo.png',size:150, class: 'logo' %></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -7,8 +7,9 @@
 
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto">
-          <% if end_user_signed_in? %>
+          <%= render 'searches/search', prefectures: @prefectures, genres: @genres %><!--検索-->
 
+          <% if end_user_signed_in? %>
             <li>
               <%= link_to my_page_public_end_users_path ,class: 'nav-link text-light' do %>
                <div class="nav-btn"><strong>マイページ</strong></div>
@@ -28,23 +29,23 @@
             </li>
 
           <% elsif admin_signed_in? %>
-          <li>
-            <%=  link_to admin_end_users_path ,class: 'nav-link text-light' do %>
-              <div class="nav-btn"><strong>会員一覧</strong></div>
-            <% end %>
-          </li>
+            <li>
+              <%=  link_to admin_end_users_path ,class: 'nav-link text-light' do %>
+                <div class="nav-btn"><strong>会員一覧</strong></div>
+              <% end %>
+            </li>
 
-          <li>
-            <%=  link_to admin_genres_path,class: 'nav-link text-light' do %>
-              <div class="nav-btn"><strong>ジャンル一覧</strong></div>
-            <% end %>
-          </li>
+            <li>
+              <%=  link_to admin_genres_path,class: 'nav-link text-light' do %>
+                <div class="nav-btn"><strong>ジャンル一覧</strong></div>
+              <% end %>
+            </li>
 
-          <li>
-            <%= link_to admin_spots_path ,class: 'nav-link text-light' do %>
-              <div class="nav-btn"><strong>会員投稿一覧</strong></div>
-            <% end %>
-          </li>
+            <li>
+              <%= link_to admin_spots_path ,class: 'nav-link text-light' do %>
+                <div class="nav-btn"><strong>会員投稿一覧</strong></div>
+              <% end %>
+            </li>
 
           <% else %>
 
@@ -66,11 +67,6 @@
               <% end %>
             </li>
 
-            <li>
-              <%= link_to  public_spots_path ,class: 'nav-link text-light' do %>
-                <div class="nav-btn"><strong>みんなの投稿一</strong></div>
-              <% end %>
-            </li>
           <% end %>
         </ul>
       </div>

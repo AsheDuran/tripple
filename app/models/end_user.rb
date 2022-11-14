@@ -28,8 +28,8 @@ class EndUser < ApplicationRecord
   def self.guest
     find_or_create_by!(email: 'test@com') do |end_user|#find_or_create_by!でゲストユーザーが無ければ作成、あれば取り出す
       end_user.password = SecureRandom.urlsafe_base64#↓ゲストユーザーがない時に作成するユーザー情報
-#      end_user.confirmed_at = Time.now  #Confirmable を使用している場合は必要
-  #     end_user.password_confirmation = end_user.password
+     #end_user.confirmed_at = Time.now  #Confirmable を使用している場合は必要
+     #end_user.password_confirmation = end_user.password
       end_user.first_name = 'サンプル'
       end_user.last_name = '太郎'
     end
