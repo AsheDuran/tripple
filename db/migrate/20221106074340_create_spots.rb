@@ -8,7 +8,7 @@ class CreateSpots < ActiveRecord::Migration[6.1]
       t.string :name, null: false
       t.string :address, null: false
       t.text :explanation, null: false
-      t.boolean :is_published_flag
+      t.boolean :is_published_flag, null: false
 
       t.timestamps
     end
