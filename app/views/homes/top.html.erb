@@ -6,7 +6,7 @@
       <div id="skippr" style="height: 500px;margin: 0 auto;">
       　　<% @spots.each do |spot| %><!--インスタンス変数入れる-->
           <div>
-            <%= image_tag spot.image, class: 'img-cover' %>
+            <%= image_tag spot.image, class: 'img-cover' %><br>
           </div>
         <% end %>
       </div>
@@ -18,7 +18,7 @@
 $(document).ready(function() {
   $("#skippr").skippr({
     transition: 'slide',
-    speed: 1000,
+    speed: 1500,
     childrenElementType: 'div',
     autoPlay: true,
     autoPlayDuration: 2000,

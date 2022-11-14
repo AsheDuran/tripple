@@ -18,3 +18,15 @@
     <% end %>
   </div>
 </div>
+
+<div class="search_form">
+  <%= form_with url: public_search_path, local: true, method: :get do |f| %>
+    <%= f.text_field :word , placeholder:"🔍" %>
+    <%#= f.select :prefecture, options_for_select([['都道府県']]) %>
+    <%= f.select :prefecture_id, options_from_collection_for_select(Prefecture.all, :id, :name), { include_blank: '--都道府県--'}%>
+    <%#= f.select :genre, options_for_select([['ジャンル']]) %>
+    <%= f.select :genre_id, options_from_collection_for_select(Genre.all, :id, :name), { include_blank: '--ジャンル--'} %>
+    <%#= f.select :search, options_for_select([["部分一致","partial_match"]]) %>
+    <%= f.submit "検索", class: "btn btn-primary" %>
+  <% end %>
+</div>

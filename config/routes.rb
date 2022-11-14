@@ -24,6 +24,7 @@ Rails.application.routes.draw do
       resource :favorites, only: [:create, :destroy]
       resources :comments, only: [:create, :destroy]
     end
+    get "search" => "spots#search"
     resources :prefectures
     resources :genres
     resources :end_users do#controllerでmy_pageを定義したからdo-endの間にget :my_page, on: :collectionを記述

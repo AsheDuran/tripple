@@ -2,6 +2,7 @@ class Public::SpotsController < ApplicationController
 
   def new
     @spot = Spot.new
+    @spots = Spot.published#公開非公開の際に記述
   end
 
   def create
@@ -19,7 +20,8 @@ class Public::SpotsController < ApplicationController
   end
 
   def index
-    @spots = Spot.all
+    @spots = Spot.published
+
   end
 
   def edit
@@ -38,7 +40,10 @@ class Public::SpotsController < ApplicationController
     redirect_to public_spots_path
   end
 
-
+  def search
+    @spots = Spot.where(prefecture_id: params[:prefecture_id], genre_id: params[:genre_id])
+    render :index
+  end
 
 
 
@@ -47,7 +52,7 @@ class Public::SpotsController < ApplicationController
   private
 
   def spot_params
-    params.require(:spot).permit(:name, :explanation, :prefecture_id, :address, :genre_id, :image, :end_user_id)
+    params.require(:spot).permit(:name, :explanation, :prefecture_id, :address, :genre_id, :image, :end_user_id, :is_published_flag)
   end
 
 

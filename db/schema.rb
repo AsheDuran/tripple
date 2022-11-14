@@ -102,6 +102,7 @@ ActiveRecord::Schema.define(version: 2022_11_10_071512) do
     t.string "name", null: false
     t.string "address", null: false
     t.text "explanation", null: false
+    t.boolean "is_published_flag"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

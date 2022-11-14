@@ -12,10 +12,10 @@
 
         <div class="form-group">
           <div class="row">
-            <div class="col-lg-3">
+            <div class="col-md-3">
               <%= f.label :image, "場所の画像" %>
             </div>
-            <div class="col-lg-9">
+            <div class="col-md-9">
               <%= f.file_field :image, accept: "image/*", class: "form-control" %>
             </div>
           </div>
@@ -23,10 +23,10 @@
 
         <div class="form-group">
           <div class="row">
-            <div class="col-lg-3">
+            <div class="col-md-3">
               <%= f.label :name, "場所の名称" %>
             </div>
-            <div class="col-lg-9">
+            <div class="col-md-9">
               <%= f.text_field :name, placeholder:"場所の名称" ,class: "form-control" %>
             </div>
           </div>
@@ -34,10 +34,10 @@
 
         <div class="form-group">
           <div class="row">
-            <div class="col-lg-3">
+            <div class="col-md-3">
               <%= f.label :explanation, "場所の説明" %>
             </div>
-            <div class="col-lg-9">
+            <div class="col-md-9">
               <%= f.text_area :explanation, placeholder:"ここに場所の説明文を記述します", class: "form-control" %>
             </div>
           </div>
@@ -45,10 +45,10 @@
 
         <div class="form-group">
           <div class="row">
-            <div class="col-lg-3">
+            <div class="col-md-3">
               <%= f.label :prefecture_id,"都道府県" %>
             </div>
-            <div class="col-lg-9">
+            <div class="col-md-9">
               <%= f.collection_select :prefecture_id, Prefecture.all, :id, :name, { include_blank: '--選択してください--'} %>
             </div>
           </div>
@@ -56,10 +56,10 @@
 
         <div class="form-group">
           <div class="row">
-            <div class="col-lg-3">
+            <div class="col-md-3">
               <%= f.label :address, "所在地" %>
             </div>
-            <div class="col-lg-9">
+            <div class="col-md-9">
               <%= f.text_field :address, placeholder:"所在地を入力してください" ,class: "form-control" %>
             </div>
           </div>
@@ -68,11 +68,26 @@
 
         <div class="form-group">
           <div class="row">
-            <div class="col-lg-3">
+            <div class="col-md-3">
               <%= f.label :genre_id,"ジャンル" %>
             </div>
-            <div class="col-lg-9">
+            <div class="col-md-9">
               <%= f.collection_select :genre_id, Genre.all, :id, :name, { include_blank: '--選択してください--'} %>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="row">
+            <div class="col-md-3">
+              <p>公開設定</p>
+            </div>
+            <div class="col-md-9">
+                <%= f.label :is_published_flag, "公開", value: true %>
+                <%= f.radio_button :is_published_flag, 'true' %>
+                &nbsp;&nbsp;&nbsp;
+                <%= f.label :is_published_flag, "非公開", value: false %>
+                <%= f.radio_button :is_published_flag,'false' %>
             </div>
           </div>
         </div>
@@ -84,6 +99,8 @@
            </div>
           </div>
         </div>
+
+
       <% end %>
       </div>
   </div>
