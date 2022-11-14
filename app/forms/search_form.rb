@@ -5,7 +5,7 @@ class CustomerSearchForm include ActiveModel::Model
   def search
     rel = Customer
 
-    rel = rel.where(id: id) if id.present?
+    rel = rel.where(genre_id: id) if id.present?
 
     rel = rel.where(name: name) if name.present?
 

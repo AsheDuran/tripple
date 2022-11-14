@@ -17,14 +17,6 @@ class Spot < ApplicationRecord
     image.variant(resize_to_limit: [width, height]).processed
   end
 
-  def self.looks(search, word)
-    if search == "partial_match"
-      @spot = Spot.where("name LIKE?","%#{word}%")
-    else
-      @spot = Spot.all
-    end
-  end
-
   def favorited_by?(end_user)#favorited_by?メソッドでいいねを既に押しているか、押していないか判断
     favorites.exists?(end_user_id: end_user.id)
   end

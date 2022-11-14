@@ -7,9 +7,9 @@
 
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto">
-          <%= render 'searches/search', prefectures: @prefectures, genres: @genres %><!--検索-->
 
           <% if end_user_signed_in? %>
+
             <li>
               <%= link_to my_page_public_end_users_path ,class: 'nav-link text-light' do %>
                <div class="nav-btn"><strong>マイページ</strong></div>
