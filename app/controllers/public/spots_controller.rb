@@ -41,10 +41,11 @@ class Public::SpotsController < ApplicationController
   end
 
   def search
-    @spots = Spot.where(prefecture_id: params[:prefecture_id], genre_id: params[:genre_id])
+    @spots = Spot.where(prefecture_id: params[:prefecture_id], genre_id: params[:genre_id]).published
     #@spots = Spot.where(prefecture_id: params[:prefecture_id]).or (Spot.where(genre_id: params[:genre_id]))
     # @spots = Spot.where(‘prefecture_id: params[:prefecture_id] = ? or Spot.where(genre_id: params[:genre_id]) = ?‘)
     #上記2文はsyntaxerrorでも、どこが悪いか分からん。
+
     render :index
   end
 

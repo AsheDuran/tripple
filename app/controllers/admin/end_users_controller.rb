@@ -7,6 +7,7 @@ class Admin::EndUsersController < ApplicationController
   def show
     @end_user = EndUser.find(params[:id])
     @spots = @end_user.spots
+
   end
 
   def edit
