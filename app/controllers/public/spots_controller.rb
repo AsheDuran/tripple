@@ -41,11 +41,8 @@ class Public::SpotsController < ApplicationController
   end
 
   def search
-    # @spots = Spot.where(prefecture_id: params[:prefecture_id], genre_id: params[:genre_id]).published
-    @spots = Spot.where(prefecture_id: params[:prefecture_id]).or (Spot.where(genre_id: params[:genre_id]))
-    # @spots = Spot.where(‘prefecture_id: params[:prefecture_id] = ? or Spot.where(genre_id: params[:genre_id]) = ?‘)
-    #上記2文はsyntaxerrorでも、どこが悪いか分からん。
-
+    # @spots = Spot.where(prefecture_id: params[:prefecture_id], genre_id: params[:genre_id]).published "or"条件足してない記述
+    @spots = Spot.where(prefecture_id: params[:prefecture_id]).published.or (Spot.where(genre_id: params[:genre_id])).published.or (Spot.where(name: params[:name])).published
     render :index
   end
 
