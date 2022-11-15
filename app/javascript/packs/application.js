@@ -18,3 +18,6 @@ import '@fortawesome/fontawesome-free/js/all'//FontAwesome導入の際に記述/
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+
+window.$ = window.jQuery = require('jquery');
+require('packs/raty')

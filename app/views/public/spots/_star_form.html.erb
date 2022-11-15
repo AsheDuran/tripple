@@ -1,0 +1,24 @@
+<div class="form-group">
+  <div class="row">
+    <div class="col-md-3">
+      <p>評価</p>
+    </div>
+    <div class="col-md-9">
+      <div class="row" id="star">
+        <%= f.label :star,'評価 ', class:'col-md-3 col-form-label' %>
+        <%= f.hidden_field :star, id: :review_star %>
+      </div>
+      <script>
+        $('#star').empty();
+        $('#star').raty({
+          size     : 36,
+          starOff:  '<%= asset_path('star-off.png') %>',
+          starOn : '<%= asset_path('star-on.png') %>',
+
+        scoreName: 'spot[star]',
+          half: false,
+        });
+      </script>
+    </div>
+  </div>
+</div>

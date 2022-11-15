@@ -3,7 +3,11 @@ class Public::EndUsersController < ApplicationController
  def show
    @end_user = EndUser.find(params[:id])
    #byebug
-   @spots = @end_user.spots
+   if @end_user.id == current_end_user.id#自分やったら全投稿出る
+     @spots = @end_user.spots
+   else
+     @spots = @end_user.spots.published
+   end
  end
 
  def my_page#showでcurrent_end_user使ったら、ややこしかったので、こっちに記述した。
