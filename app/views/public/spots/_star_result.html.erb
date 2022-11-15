@@ -1,0 +1,12 @@
+<div id="star-rate<%= spot.id%>"></div>
+  <script>
+    $('#star-rate<%= spot.id %>').empty();
+    $('#star-rate<%= spot.id%>').raty({
+      size      : 36,
+      starOff   : '<%= asset_path('star-off.png') %>',
+      starOn    : '<%= asset_path('star-on.png') %>',
+      half      : false,
+      readOnly: true,
+      score: <%= spot.star %>,
+    });
+   </script>

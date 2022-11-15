@@ -79,6 +79,32 @@
             </div>
           </div>
 
+          <%#= render 'star_form' %>
+          <div class="form-group">
+            <div class="row">
+              <div class="col-md-3">
+                <p>おすすめ度</p>
+              </div>
+              <div class="col-md-6 offset-1">
+                <div class="row" id="star">
+                  <%= f.label :star %>
+                  <%= f.hidden_field :star, id: :review_star %>
+                </div>
+                <script>
+                  $('#star').empty();
+                  $('#star').raty({
+                    size     : 36,
+                    starOff:  '<%= asset_path('star-off.png') %>',
+                    starOn : '<%= asset_path('star-on.png') %>',
+
+                  scoreName: 'spot[star]',
+                    half: false,
+                  });
+                </script>
+              </div>
+            </div>
+          </div>
+
           <div class="row mt-3 mb-5">
             <div class="col-6 offset-3">
               <%= f.submit "再投稿",class: "btn btn-success"%>

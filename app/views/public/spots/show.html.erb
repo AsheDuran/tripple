@@ -79,6 +79,16 @@
         </div>
       </div>
 
+      <div class ="row">
+        <div class ="col-4">
+          <p>おすすめ度</p>
+        </div>
+        <div class ="col-8">
+          <%= render 'star_result', spot: @spot %>
+        </div>
+      </div>
+
+
       <div class="favorite_btn">
         <%= render 'favorites_show', spot: @spot %>
       </div>
