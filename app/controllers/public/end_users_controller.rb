@@ -22,8 +22,12 @@ class Public::EndUsersController < ApplicationController
 
  def update
    @end_user = current_end_user
-   @end_user.update(end_user_params)
-   redirect_to my_page_public_end_users_path
+   if @end_user.update(end_user_params)
+     flash[:notice] = "編集が完了しました!"
+     redirect_to my_page_public_end_users_path
+   else  flash[:notice] = "編集に失敗しました..."
+     render :edit
+   end
  end
 
  def unsubscribe

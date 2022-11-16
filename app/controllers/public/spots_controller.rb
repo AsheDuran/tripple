@@ -9,8 +9,9 @@ class Public::SpotsController < ApplicationController
     @spot = Spot.new(spot_params)
     @spot.end_user_id = current_end_user.id
     if  @spot.save
+      flash[:notice] = "投稿が完了しました!"
       redirect_to  public_spot_path(@spot)
-    else
+    else  flash[:notice] = "投稿に失敗しました..."
       render :new
     end
   end
@@ -33,8 +34,12 @@ class Public::SpotsController < ApplicationController
 
   def update
     @spot = Spot.find(params[:id])
-    @spot.update(spot_params)
-    redirect_to public_spot_path(@spot)
+    if @spot.update(spot_params)
+      flash[:notice] = "編集が完了しました!"
+      redirect_to public_spot_path(@spot)
+    else  flash[:notice] = "編集に失敗しました..."
+      render :edit
+    end
   end
 
   def  destroy
