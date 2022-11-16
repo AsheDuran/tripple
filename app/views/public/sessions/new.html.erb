@@ -5,6 +5,7 @@
     </div>
       <div class="col-6 mt-10">
         <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <%= render "public/shared/error_messages", resource: resource  %>
           <div class="field">
             <%= f.label :email,"メールアドレス" %><br />
             <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
@@ -26,7 +27,6 @@
             <%= f.submit "ログイン" %>
           </div>
         <% end %>
-
 
         <%= render "public/shared/links" %>
       </div>

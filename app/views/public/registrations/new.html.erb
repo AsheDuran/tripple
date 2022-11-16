@@ -4,71 +4,70 @@
       <h2>新規会員登録</h2>
     </div>
   </div>
-  <!--<div class="row">--後でエラー文表示整える-->
-    <div class ="col-4"></div>
+
+    <div class ="col-md-4"></div>
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-      <%= render "public/shared/error_messages", resource: resource %>
-  <!--</div>-->
+      <%= render "public/shared/error_messages", resource: resource  %>
 
-  <div class="row">
-    <div class ="col-3"></div>
-    <div class="col-md-3">
-      <%= f.label :last_name,"名前(姓)" %>
-    </div>
-    <div class="col-md-4">
-      <%= f.text_field :last_name, autofocus: true, placeholder:"山田" ,class: "form-control" %>
-    </div>
-  </div>
-
-
-  <div class="row mt-3">
-    <div class ="col-3"></div>
-    <div class="col-md-3">
-      <%= f.label :first_name,"名前(名)" %>
-    </div>
-    <div class="col-md-4">
-      <%= f.text_field :first_name, placeholder:"とりっぴー" ,class: "form-control" %>
-    </div>
-  </div>
-
-  <div class="row mt-3">
-    <div class ="col-3"></div>
-    <div class="col-md-3">
-      <%= f.label :email,"メールアドレス" %>
-    </div>
-    <div class="col-md-4">
-      <%= f.email_field :email, placeholder:"sample@sample.com" %>
-    </div>
-  </div>
-  
-  <div class="row mt-3">
-    <div class ="col-3"></div>
-    <div class="col-md-3">
-      <%= f.label :password,"パスワード" %>
-        <% if @minimum_password_length %>
-        <em>(<%= @minimum_password_length %> 文字以上)</em>
-        <% end %><br/>
-    </div>    
-      <div class="col-md-4">
-        <%= f.password_field :password, autocomplete: "new-password" %>
+      <div class="row">
+        <div class ="col-3"></div>
+        <div class="col-md-3">
+          <%= f.label :last_name,"名前(姓)" %>
+        </div>
+        <div class="col-md-4">
+          <%= f.text_field :last_name, autofocus: true, placeholder:"山田" ,class: "form-control" %>
+        </div>
       </div>
-  </div>
 
-  <div class="row mt-3">
-    <div class ="col-3"></div>
-    <div class="col-md-3">    
-      <%= f.label :password_confirmation,"確認用パスワード" %>
-    </div>
-    <div class="col-md-4">     
-      <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-    </div>
-  </div>
 
-  <div class="row mt-3">
-    <div class ="col-5"></div>
-    <div class="col-md-5">    
-      <%= f.submit "新規登録" %>
-    </div>
+      <div class="row mt-3">
+        <div class ="col-3"></div>
+        <div class="col-md-3">
+          <%= f.label :first_name,"名前(名)" %>
+        </div>
+        <div class="col-md-4">
+          <%= f.text_field :first_name, placeholder:"とりっぴー" ,class: "form-control" %>
+        </div>
+      </div>
+
+      <div class="row mt-3">
+        <div class ="col-3"></div>
+        <div class="col-md-3">
+          <%= f.label :email,"メールアドレス" %>
+        </div>
+        <div class="col-md-4">
+          <%= f.email_field :email, placeholder:"sample@sample.com" %>
+        </div>
+      </div>
+
+      <div class="row mt-3">
+        <div class ="col-3"></div>
+        <div class="col-md-3">
+          <%= f.label :password,"パスワード" %>
+            <% if @minimum_password_length %>
+            <em>(<%= @minimum_password_length %> 文字以上)</em>
+            <% end %><br/>
+        </div>
+          <div class="col-md-4">
+            <%= f.password_field :password, autocomplete: "new-password" %>
+          </div>
+      </div>
+
+      <div class="row mt-3">
+        <div class ="col-3"></div>
+        <div class="col-md-3">
+          <%= f.label :password_confirmation,"確認用パスワード" %>
+        </div>
+        <div class="col-md-4">
+          <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+        </div>
+      </div>
+
+      <div class="row mt-3">
+        <div class ="col-5"></div>
+        <div class="col-md-5">
+          <%= f.submit "新規登録" %>
+        </div>
     <% end %>
 　</div>
     <%= render "public/shared/links" %>

@@ -2,14 +2,17 @@ class Public::SpotsController < ApplicationController
 
   def new
     @spot = Spot.new
-    @spots = Spot.published#公開非公開の際に記述
+    @spots = Spot.published#公開しているもののみ表示するするため、.allではなく.published
   end
 
   def create
     @spot = Spot.new(spot_params)
     @spot.end_user_id = current_end_user.id
-    @spot.save
-    redirect_to  public_spot_path(@spot)
+    if  @spot.save
+      redirect_to  public_spot_path(@spot)
+    else
+      render :new
+    end
   end
 
   def show

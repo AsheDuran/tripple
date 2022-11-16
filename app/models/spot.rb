@@ -9,6 +9,15 @@ class Spot < ApplicationRecord
 
   has_one_attached :image
 
+  validates :name, presence: true
+  validates :explanation, presence: true
+  validates :address, presence: true
+  validates :is_published_flag, presence: true
+  validates :star, presence: true
+  # validates :genre_id, presence: true
+  # validates :prefecture_id, presence: true
+  # 上記2行はエラーメッセージの際、二重にエラーメッセージが表示されるためコメントアウト。
+
   def get_image(width, height)
     unless image.attached?
       file_path = Rails.root.join('app/assets/images/no_image.png')
