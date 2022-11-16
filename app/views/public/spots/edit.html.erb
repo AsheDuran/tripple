@@ -98,21 +98,24 @@
                 <p>おすすめ度</p>
               </div>
               <div class="col-md-6 offset-1">
-                <div class="row" id="star">
+
+                <div class="row" id="star-rate<%= @spot.id%>">
                   <%= f.label :star %>
                   <%= f.hidden_field :star, id: :review_star %>
                 </div>
                 <script>
-                  $('#star').empty();
-                  $('#star').raty({
+                  $('#star-rate<%= @spot.id %>').empty();
+                  $('#star-rate<%= @spot.id %>').raty({
                     size     : 36,
                     starOff:  '<%= asset_path('star-off.png') %>',
                     starOn : '<%= asset_path('star-on.png') %>',
 
+                  score: <%= @spot.star %>,
                   scoreName: 'spot[star]',
                     half: false,
                   });
                 </script>
+
               </div>
             </div>
           </div>

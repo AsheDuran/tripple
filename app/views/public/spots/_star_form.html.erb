@@ -1,11 +1,11 @@
 <div class="form-group">
   <div class="row">
     <div class="col-md-3">
-      <p>評価</p>
+      <p>おすすめ度</p>
     </div>
-    <div class="col-md-9">
+    <div class="col-md-6 offset-1">
       <div class="row" id="star">
-        <%= f.label :star,'評価 ', class:'col-md-3 col-form-label' %>
+        <%= f.label :star %>
         <%= f.hidden_field :star, id: :review_star %>
       </div>
       <script>
