@@ -25,8 +25,22 @@
             </td>
             <td style="text-align:center"><%=spot.name %></td>
             <td style="text-align:center"><%= spot.favorites.count %></td>
-            <td style="text-align:center"> </td>
+            <td style="text-align:center" id="star-rate<%= spot.id %>"></td>
           </tr>
+
+          <script>
+            $('#star-rate<%= spot.id %>').empty();
+            $('#star-rate<%= spot.id %>').raty({
+              size     : 36,
+              starOff:  '<%= asset_path('star-off.png') %>',
+              starOn : '<%= asset_path('star-on.png') %>',
+
+            score: <%= spot.star %>,
+            scoreName: 'spot[star]',
+              half: false,
+            });
+          </script>
+
         <% end %>
       </tbody>
     </table>
