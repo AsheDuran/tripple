@@ -4,7 +4,7 @@
       <h2>投稿詳細</h2>
     </div>
 
-    <div class="col-md-7"> <strong style="color:#4169e1;"><%= flash[:notice] %></strong></div>
+    <div class="col-md-7"> <strong style="color:#4169e1;"><% if flash[:notice] %><%= flash[:notice] %><% end %></strong></div>
 
     <div class="col-md-1">
       <%= link_to public_spots_path do %>

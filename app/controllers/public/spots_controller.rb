@@ -1,4 +1,5 @@
 class Public::SpotsController < ApplicationController
+  before_action :authenticate_end_user!
 
   def new
     @spot = Spot.new
