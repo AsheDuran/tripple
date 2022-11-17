@@ -1,33 +1,55 @@
 <div class="container">
   <div class="row m-5">
-    <div class="col-4">
+    <div class="col-md-4">
       <h2>会員ログイン</h2>
     </div>
-      <div class="col-6 mt-10">
-        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-          <%= render "public/shared/error_messages", resource: resource  %>
-          <div class="field">
-            <%= f.label :email,"メールアドレス" %><br />
-            <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-          </div>
+  </div>
 
-          <div class="field">
-            <%= f.label :password,"パスワード" %><br />
-            <%= f.password_field :password, autocomplete: "current-password" %>
-          </div>
+  <div class ="col-md-4"></div>
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <%= render "public/shared/error_messages", resource: resource  %>
 
-          <% if devise_mapping.rememberable? %>
-            <div class="field">
-              <%= f.check_box :remember_me %>
-              <%= f.label :remember_me,"ログイン情報を保存しますか?" %>
-            </div>
-          <% end %>
+    <div class="row">
+      <div class ="col-md-3"></div>
+      <div class="col-md-2">
+        <%= f.label :email,"メールアドレス" %>
+      </div>
+      <div class="col-md-4">
+        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      </div>
+    </div>
 
-          <div class="actions">
-            <%= f.submit "ログイン" %>
-          </div>
+    <div class="row mt-3">
+      <div class ="col-md-3"></div>
+      <div class="col-md-2">
+        <%= f.label :password,"パスワード" %>
+      </div>
+      <div class="col-md-4">
+        <%= f.password_field :password, autocomplete: "current-password" %>
+      </div>
+    </div>
+
+    <div class="row mt-3">
+      <div class ="col-md-3"></div>
+      <div class="col-md-5">
+        <% if devise_mapping.rememberable? %>
+          <%= f.check_box :remember_me %>
+          <%= f.label :remember_me,"ログイン情報を保存しますか?" %>
         <% end %>
+      </div>
+    </div>
 
+    <div class="row mt-3">
+      <div class ="col-md-3"></div>
+      <div class="col-md-5 text-center">
+        <%= f.submit "ログイン" %>
+      </div>
+    </div>
+  <% end %>
+
+    <div class="row mt-3">
+      <div class ="col-md-3"></div>
+      <div class="col-md-5">
         <%= render "public/shared/links" %>
       </div>
     </div>
