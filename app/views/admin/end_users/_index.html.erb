@@ -13,8 +13,22 @@
       <tr>
         <td><%= link_to spot.name, admin_spot_path(spot.id) %></td>
         <td><%= spot.favorites.count %> いいね</td>
-        <td></td>
+        <td id="star-rate<%= spot.id %>"></td>
       </tr>
+      
+      <script>
+        $('#star-rate<%= spot.id %>').empty();
+        $('#star-rate<%= spot.id %>').raty({
+          size     : 36,
+          starOff:  '<%= asset_path('star-off.png') %>',
+          starOn : '<%= asset_path('star-on.png') %>',
+  
+        score: <%= spot.star %>,
+        scoreName: 'spot[star]',
+          half: false,
+        });
+      </script>     
+    
     <% end %>
   </tbody>
 </table>
