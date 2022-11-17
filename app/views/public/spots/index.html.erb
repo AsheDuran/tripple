@@ -15,7 +15,7 @@
 
   <div class="row mt-2">
     <%  @spots.each do |spot| %>
-      <div class="spot_index col-md-3 text-center">
+      <div class="spot_index col-md-3 p-2 text-center">
         <%= link_to public_spot_path(spot) do %>
           <%= image_tag spot.get_image(200, 200) %><br>
           <%= spot.name %>
