@@ -1,4 +1,5 @@
 class Admin::SpotsController < ApplicationController
+  before_action :authenticate_admin!
 
   def index
     @spots = Spot.all
