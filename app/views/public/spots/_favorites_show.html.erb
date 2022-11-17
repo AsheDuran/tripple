@@ -1,29 +1,29 @@
 <div class ="row">
-  <div class ="col-4">
+  <div class ="col-md-4">
     <p>いいね</p>
   </div>
 
   <% if spot.favorited_by?(current_end_user) %><!--spot.rbに定義-->
-  <div class ="col-1">
+  <div class ="col-md-1">
     <p>
       <%= link_to  public_spot_favorites_path(spot), method: :delete, remote: true do %>
-        ♥<!--remote: trueは非同期の際に追加。JavaScript形式のリクエストが送信される。-->
+        <span  style="color:#ff0000;">♥</span><!--remote: trueは非同期の際に追加。JavaScript形式のリクエストが送信される。-->
     </p>
   </div>
-  <div class ="col-4">
+  <div class ="col-md-4">
     <p>
         <%= spot.favorites.count %> いいね
       <% end %>
     </p>
   </div>
   <% else %>
-  <div class ="col-1">
+  <div class ="col-md-1">
     <p>
       <%= link_to public_spot_favorites_path(spot), method: :post, remote: true do %>
-        ♡
+       <span  style="color:#ff0000;">♡</span>
     </p>
   </div>
-  <div class ="col-4">
+  <div class ="col-md-4">
     <p>
         <%= spot.favorites.count %> いいね
       <% end %>

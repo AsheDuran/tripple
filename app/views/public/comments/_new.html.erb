@@ -1,5 +1,5 @@
 <div class ="row">
-  <div class= "col-9">
+  <div class= "col-md-9">
   <%= form_with model: [spot, comment], url: public_spot_comments_path(spot_id: spot.id) do |f| %>
     <%= f.text_area :comment, size: "40%", placeholder: "コメントを記入してください" %>
     <%= f.submit "送信する" %>
@@ -8,31 +8,31 @@
 </div>
 
 <div class ="row">
-  <div class= "col-9">
+  <div class= "col-md-9">
     <p>コメント件数：<%= spot.comments.count %></p>
   </div>
 </div>
 
 <div class ="row">
 <% spot.comments.each do |comment| %>
-  <div class ="col-3">
+  <div class ="col-md-3">
     <%= image_tag comment.end_user.get_profile_image(100,100) %>
   </div>
-  <div class ="col-3">
+  <div class ="col-md-3">
     <%= comment.end_user.name %>
     <% if comment.end_user == current_end_user %>
-      <%= link_to "削除", public_spot_comment_path(comment.spot.id, comment.id), method: :delete %>
+      <strong><%= link_to "削除", public_spot_comment_path(comment.spot.id, comment.id), method: :delete ,style: "color:red;" %></strong>
     <% end %>
 
   </div>
-  <div class ="col-6">
+  <div class ="col-md-6">
     <div class ="row">
-      <div class ="col">
+      <div class ="col-md">
         <%= comment.created_at.strftime('%Y/%m/%d') %>
       </div>
     </div>
     <div class ="row">
-      <div class ="col">
+      <div class ="col-md">
         <%= comment.comment %>
       </div>
     </div>

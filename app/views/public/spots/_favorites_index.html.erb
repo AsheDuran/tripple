@@ -1,13 +1,13 @@
   <% if spot.favorited_by?(current_end_user) %><!--spot.rbに定義-->
 
     <%= link_to  public_spot_favorites_path(spot), method: :delete, remote: true do %>
-      ♥
+      <span  style="color:#ff0000;">♥</span>
     <% end %>
 
   <% else %>
 
     <%= link_to public_spot_favorites_path(spot), method: :post, remote: true do %>
-      ♡
+      <span  style="color:#ff0000;">♡</span>
     <% end %>
 
   <% end %>
