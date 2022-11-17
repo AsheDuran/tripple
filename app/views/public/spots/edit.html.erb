@@ -19,114 +19,113 @@
 
   <div class="row mt-3">
     <div class="col-3"></div>
-      <%= form_with model: @spot, url: public_spot_path, method: :patch do |f| %>
+    <%= form_with model: @spot, url: public_spot_path, method: :patch do |f| %>
       <div class="col9">
 
-          <div class="row mb-3">
-            <div class="col-md-3">
-              <%= f.label :image, "場所の画像" %>
-            </div>
-            <div class="col-md-9">
-              <%= f.file_field :image, accept: "image/*", class: "form-control" %>
-            </div>
+        <div class="row mb-3">
+          <div class="col-md-3">
+            <%= f.label :image, "場所の画像" %>
           </div>
-
-          <div class="row mb-3">
-            <div class="col-md-3">
-              <%= f.label :name, "場所の名称" %>
-            </div>
-            <div class="col-md-9">
-              <%= f.text_field :name, placeholder:"場所の名称" ,class: "form-control" %>
-            </div>
+          <div class="col-md-9">
+            <%= f.file_field :image, accept: "image/*", class: "form-control" %>
           </div>
+        </div>
 
-          <div class="row mb-3">
-            <div class="col-md-3">
-              <%= f.label :explanation, "場所の説明" %>
-            </div>
-            <div class="col-md-9">
-              <%= f.text_area :explanation, placeholder:"ここに場所の説明文を記述します", class: "form-control" %>
-            </div>
+        <div class="row mb-3">
+          <div class="col-md-3">
+            <%= f.label :name, "場所の名称" %>
           </div>
-
-          <div class="row mb-3">
-            <div class="col-md-3">
-              <%= f.label :prefecture_id,"都道府県" %>
-            </div>
-            <div class="col-md-9">
-              <%= f.collection_select :prefecture_id, Prefecture.all, :id, :name, { include_blank: '--選択してください--'} %>
-            </div>
+          <div class="col-md-9">
+            <%= f.text_field :name, placeholder:"場所の名称" ,class: "form-control" %>
           </div>
+        </div>
 
-          <div class="row mb-3">
-            <div class="col-md-3">
-              <%= f.label :address, "所在地" %>
-            </div>
-            <div class="col-md-9">
-              <%= f.text_field :address, placeholder:"所在地を入力してください" ,class: "form-control" %>
-            </div>
+        <div class="row mb-3">
+          <div class="col-md-3">
+            <%= f.label :explanation, "場所の説明" %>
           </div>
-
-          <div class="row mb-3">
-            <div class="col-md-3">
-              <%= f.label :genre_id,"ジャンル" %>
-            </div>
-            <div class="col-md-9">
-              <%= f.collection_select :genre_id, Genre.all, :id, :name, { include_blank: '--選択してください--'} %>
-            </div>
+          <div class="col-md-9">
+            <%= f.text_area :explanation, placeholder:"ここに場所の説明文を記述します", class: "form-control" %>
           </div>
+        </div>
 
-          <div class="form-group">
-            <div class="row">
-              <div class="col-md-3">
-                <p>公開設定</p>
-              </div>
-              <div class="col-md-9">
-                  <%= f.label :is_published_flag, "公開", value: true %>
-                  <%= f.radio_button :is_published_flag, 'true' %>
-                  &nbsp;&nbsp;&nbsp;
-                  <%= f.label :is_published_flag, "非公開", value: false %>
-                  <%= f.radio_button :is_published_flag,'false' %>
-              </div>
+        <div class="row mb-3">
+          <div class="col-md-3">
+            <%= f.label :prefecture_id,"都道府県" %>
+          </div>
+          <div class="col-md-9">
+            <%= f.collection_select :prefecture_id, Prefecture.all, :id, :name, { include_blank: '--選択してください--'} %>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col-md-3">
+            <%= f.label :address, "所在地" %>
+          </div>
+          <div class="col-md-9">
+            <%= f.text_field :address, placeholder:"所在地を入力してください" ,class: "form-control" %>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col-md-3">
+            <%= f.label :genre_id,"ジャンル" %>
+          </div>
+          <div class="col-md-9">
+            <%= f.collection_select :genre_id, Genre.all, :id, :name, { include_blank: '--選択してください--'} %>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-3">
+            <p>公開設定</p>
+          </div>
+          <div class="col-md-2 text-right">
+              <%= f.label :is_published_flag, "公開", value: true %>
+          </div>
+          <div class="col-md-1">
+              <%= f.radio_button :is_published_flag, 'true' %>
+          </div>
+          <div class="col-md-3 text-right">
+              <%= f.label :is_published_flag, "非公開", value: false %>
+          </div>
+          <div class="col-md-1">
+              <%= f.radio_button :is_published_flag,'false' %>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-3">
+            <p>おすすめ度</p>
+          </div>
+          <div class="col-md-6 offset-1">
+
+            <div class="row" id="star-rate<%= @spot.id%>">
+              <%= f.label :star %>
+              <%= f.hidden_field :star, id: :review_star %>
             </div>
+            <script>
+              $('#star-rate<%= @spot.id %>').empty();
+              $('#star-rate<%= @spot.id %>').raty({
+                size     : 36,
+                starOff:  '<%= asset_path('star-off.png') %>',
+                starOn : '<%= asset_path('star-on.png') %>',
+
+              score: <%= @spot.star %>,
+              scoreName: 'spot[star]',
+                half: false,
+              });
+            </script>
           </div>
-
-          <%#= render 'star_form' %>
-          <div class="form-group">
-            <div class="row">
-              <div class="col-md-3">
-                <p>おすすめ度</p>
-              </div>
-              <div class="col-md-6 offset-1">
-
-                <div class="row" id="star-rate<%= @spot.id%>">
-                  <%= f.label :star %>
-                  <%= f.hidden_field :star, id: :review_star %>
-                </div>
-                <script>
-                  $('#star-rate<%= @spot.id %>').empty();
-                  $('#star-rate<%= @spot.id %>').raty({
-                    size     : 36,
-                    starOff:  '<%= asset_path('star-off.png') %>',
-                    starOn : '<%= asset_path('star-on.png') %>',
-
-                  score: <%= @spot.star %>,
-                  scoreName: 'spot[star]',
-                    half: false,
-                  });
-                </script>
-
-              </div>
-            </div>
-          </div>
-
-          <div class="row mt-3 mb-5">
-            <div class="col-6 offset-3">
-              <%= f.submit "再投稿",class: "btn btn-success"%>
-           </div>
-          </div>
-
-      <% end %>
+        </div>
       </div>
+
+      <div class="row mt-3 mb-5">
+        <div class="col-6 offset-3">
+          <%= f.submit "再投稿",class: "btn btn-success"%>
+       </div>
+      </div>
+
+    <% end %>
   </div>
 </div>
