@@ -1,10 +1,11 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12 my-3 text-center">
+      <h3 style="color:#008080;">まだ知らない日本の良さを発見してみませんか？</h3>
+      <h4 style="color:#daa520;">★★いいね数の多い投稿★★</h4>
 
-      <h3>まだ知らない日本の良さを発見してみませんか？</h3>
       <div id="skippr" style="height: 500px;margin: 0 auto;">
-      　　<% @spots.each do |spot| %><!--インスタンス変数入れる-->
+        <% @spots.each do |spot| %><!--インスタンス変数入れる-->
           <div>
             <%= image_tag spot.image, class: 'img-cover' %><br>
           </div>
