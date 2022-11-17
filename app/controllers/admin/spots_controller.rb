@@ -2,7 +2,7 @@ class Admin::SpotsController < ApplicationController
   before_action :authenticate_admin!
 
   def index
-    @spots = Spot.all
+    @spots = Spot.page(params[:page])
   end
 
   def show
@@ -17,7 +17,9 @@ class Admin::SpotsController < ApplicationController
   end
 
   def search
-    @spots = Spot.where(prefecture_id: params[:prefecture_id]).published.or (Spot.where(genre_id: params[:genre_id])).published.or (Spot.where(name: params[:name])).published
+    @spots = Spot.where(prefecture_id: params[:prefecture_id]).page(params[:page]).or
+    (Spot.where(genre_id: params[:genre_id])).page(params[:page]).or
+    (Spot.where(name: params[:name])).page(params[:page])
     render :index
   end
 
