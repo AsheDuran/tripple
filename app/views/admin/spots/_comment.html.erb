@@ -16,7 +16,7 @@
   <div class ="col-3">
     <%= comment.end_user.name %>
 
-      <%= link_to "削除", admin_spot_comment_path(comment.spot.id, comment.id), method: :delete %>
+       <strong><%= link_to "削除", admin_spot_comment_path(comment.spot.id, comment.id), method: :delete ,style: "color:red;"%></strong>
 
 
   </div>
