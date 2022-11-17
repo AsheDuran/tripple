@@ -15,20 +15,21 @@
         <td><%= spot.favorites.count %> いいね</td>
         <td id="star-rate<%= spot.id %>"></td>
       </tr>
-      
+
       <script>
         $('#star-rate<%= spot.id %>').empty();
         $('#star-rate<%= spot.id %>').raty({
           size     : 36,
           starOff:  '<%= asset_path('star-off.png') %>',
           starOn : '<%= asset_path('star-on.png') %>',
-  
+          readOnly: true,
+          // readOnly: true,で表示のみになる
         score: <%= spot.star %>,
         scoreName: 'spot[star]',
           half: false,
         });
-      </script>     
-    
+      </script>
+
     <% end %>
   </tbody>
 </table>
