@@ -106,3 +106,9 @@ main {
   height: 500px;
   object-fit: cover;
 }
+
+// ↓デプロイで記述
+body {
+  background-image: image-url("hoge.jpg");
+  
+}

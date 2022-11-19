@@ -12,7 +12,7 @@ class Spot < ApplicationRecord
   validates :name, presence: true
   validates :explanation, presence: true
   validates :address, presence: true
-  validates :is_published_flag, presence: true, presence: false
+  #validates :is_published_flag, presence: true, presence: false デプロイ時にエラーが起こった為、削除。
   # validates :is_published_flag, presence: true だけにしたら、公開設定しかできんかった。
   validates :star, presence: true
   # validates :genre_id, presence: true
