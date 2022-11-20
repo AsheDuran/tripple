@@ -12,9 +12,11 @@ class Public::CommentsController < ApplicationController
   end
 
   def destroy
+    spot = Spot.find(params[:spot_id])
     Comment.find_by(id: params[:id],spot_id: params[:spot_id]).destroy
     #byebug
-    redirect_to public_spots_path
+   # redirect_to public_spots_path
+    redirect_to public_spot_path(spot)
   end
 
   private

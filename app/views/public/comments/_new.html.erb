@@ -1,7 +1,7 @@
 <div class ="row">
   <div class= "col-md-9">
   <%= form_with model: [spot, comment], url: public_spot_comments_path(spot_id: spot.id) do |f| %>
-    <%= f.text_area :comment, size: "40%", placeholder: "コメントを記入してください" %>
+    <%= f.text_area :comment, size: "40%", placeholder: "コメントを記入してください(30文字以内)" %>
     <%= f.submit "送信する" %>
   <% end %>
   </div>
