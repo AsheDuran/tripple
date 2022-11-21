@@ -50,9 +50,7 @@ class Public::SpotsController < ApplicationController
 
   def search
     # @spots = Spot.where(prefecture_id: params[:prefecture_id], genre_id: params[:genre_id]).published "or"条件足してない記述
-    @spots = Spot.where(prefecture_id: params[:prefecture_id]).published.page(params[:page]).or
-    (Spot.where(genre_id: params[:genre_id])).published.page(params[:page]).or
-    (Spot.where(name: params[:name])).published.page(params[:page])
+    @spots = Spot.where(prefecture_id: params[:prefecture_id]).published.page(params[:page]).or (Spot.where(genre_id: params[:genre_id])).published.page(params[:page]).or (Spot.where(name: params[:name])).published.page(params[:page])
     render :index
   end
 
