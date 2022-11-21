@@ -5,7 +5,6 @@ class HomesController < ApplicationController
  DESC').limit(5).map {|favorite| favorite.spot_id}
     # =>  [ 7, 6, 3, 5, 10]
     @spots = Spot.find(spot_ranking_ids)
-    # flash[:notice]=nil
 
   end
 

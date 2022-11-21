@@ -5,19 +5,13 @@ class Spot < ApplicationRecord
   belongs_to :end_user
   has_many :favorites, dependent: :destroy
   has_many :comments, dependent: :destroy
-  # has_many :favorited_end_users, through: :favorites, source: :end_user#いいね数ランキングで記述
 
   has_one_attached :image
 
   validates :name, presence: true
   validates :explanation, presence: true
   validates :address, presence: true
-  #validates :is_published_flag, presence: true, presence: false デプロイ時にエラーが起こった為、削除。
-  # validates :is_published_flag, presence: true だけにしたら、公開設定しかできんかった。
   validates :star, presence: true
-  # validates :genre_id, presence: true
-  # validates :prefecture_id, presence: true
-  # 上記2行はエラーメッセージの際、二重にエラーメッセージが表示されるためコメントアウト。
 
   def get_image(width, height)
     unless image.attached?

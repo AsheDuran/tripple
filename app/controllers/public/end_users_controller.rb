@@ -15,7 +15,7 @@ class Public::EndUsersController < ApplicationController
    @end_user = current_end_user
    @spots = @end_user.spots
    render :show#本当はshowページに記載するため、render先はshow
- end#この後、routes.rbに記述
+ end
 
  def edit
     @end_user = current_end_user

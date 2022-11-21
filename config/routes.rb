@@ -34,8 +34,6 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    # get '/end_users/unsubscribe' => 'end_users#unsubscribe', as: 'unsubscribe'
-    # patch '/end_users/withdraw' => 'end_users#withdraw', as: 'withdraw'
     resources :end_users
     resources :spots do
       resource :favorites, only:[:create, :destroy]

@@ -1,5 +1,5 @@
-$(".favorite_btn").html("<%= j(render 'public/spots/favorites_show', spot: @spot) %>");
-
-
+if ($(".favorite_btn")) {
+  $(".favorite_btn").html("<%= j(render 'public/spots/favorites_show', spot: @spot) %>");
+}
 
 $('#favorite_btn_index_<%= @spot.id %>').html("<%= j(render 'public/spots/favorites_index', spot: @spot) %>");

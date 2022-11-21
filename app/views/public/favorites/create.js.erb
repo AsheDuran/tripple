@@ -3,6 +3,5 @@ if ($(".favorite_btn")) {
 }
 <!--コントローラは一緒なので、ここに２文記述。上でif文使っているのは下の文と区別するため。-->
 
-<!--$(".favorite_btn_index").html("<%#= j(render 'public/spots/favorites_index', spot: @spot) %>");-->
 $('#favorite_btn_index_<%= @spot.id %>').html("<%= j(render 'public/spots/favorites_index', spot: @spot) %>");
 
