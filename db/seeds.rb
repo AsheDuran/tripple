@@ -9,7 +9,7 @@
 if Rails.env.development?
   Admin.create!(email: "test@test.com",
                 password: "test00")
-  
+
   (1..10).each do |n|
     EndUser.create!(email: "user#{n}@test.com",
                    password: "test00",

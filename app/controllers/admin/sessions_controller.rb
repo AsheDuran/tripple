@@ -34,4 +34,10 @@ class Admin::SessionsController < Devise::SessionsController
       new_admin_session_path
   end
 
+  def guest_sign_in # ゲストログインの際に記述
+    admin = Admin.guest
+    sign_in admin   # 管理者をログインさせる
+    redirect_to root_path, notice: 'ゲスト管理者としてログイン成功'
+  end
+
 end
