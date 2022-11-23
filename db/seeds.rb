@@ -16,7 +16,13 @@ if Rails.env.development?
                    first_name: "test#{n}",
                    last_name: "#{n}test")
                    #introduction: "#{n}"←新規登録に必要ない。
+
   end
+
+elsif Rails.env.production?
+  Admin.create!(email: "test@test.com",
+              password: "test11")
+
 end
 
 prefectures = %w{

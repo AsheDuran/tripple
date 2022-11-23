@@ -41,3 +41,5 @@ yarn-debug.log*
 
 # ↓デプロイ時に追記
 /.env
+
+/db/seeds.rb

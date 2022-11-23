@@ -32,7 +32,7 @@ class EndUser < ApplicationRecord
       end_user.password = SecureRandom.urlsafe_base64#↓ゲストユーザーがない時に作成するユーザー情報
       # end_user.first_name = 'サンプル'
       # end_user.last_name = '太郎'
-      end_user.name = 'サンプル太郎'
+      end_user.name = 'サンプル 太郎'#空白入れた
     end
   end
 

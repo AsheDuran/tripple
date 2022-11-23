@@ -13,6 +13,7 @@ class Public::EndUsersController < ApplicationController
  end
 
  def my_page#showでcurrent_end_userを使用したら、ややこしかったので、こっちに記述した。
+   #byebug
    @end_user = current_end_user
    @spots = @end_user.spots
    render :show#本当はshowページに記載するため、render先はshow
@@ -33,7 +34,7 @@ class Public::EndUsersController < ApplicationController
  end
 
  def unsubscribe
-   @end_user = current_end_user
+   #@end_user = current_end_user
  end
 
  def withdraw
@@ -54,8 +55,9 @@ class Public::EndUsersController < ApplicationController
 
  def ensure_guest_end_user
    @end_user = EndUser.find(params[:id])
-   if @end_user.name == "サンプル太郎"
-     redirect_to my_page_public_end_users_path(current_end_user) , notice: 'ゲストユーザーはプロフィール編集画面へ遷移できません。'
+   #byebug
+   if @end_user.name == "サンプル 太郎"
+     redirect_to my_page_public_end_users_path , notice: 'ゲストユーザーはプロフィール編集画面へ遷移できません。'
    end
  end
 

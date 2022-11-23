@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row mt-5">
-    <div class="col4 offset-1">
+    <div class="col-md-4 offset-1">
       <h2>会員情報編集</h2>
     </div>
 
@@ -18,12 +18,8 @@
     </strong>
   </div>
 
-    <div class="col-md-9 text-right">
-      <span></span>
-    </div>
-  </div>
   <div class="row mt-3">
-    <div class="col-3"></div>
+    <div class="col-md-3"></div>
     <%= form_with model: @end_user, url: public_end_user_path(@end_user), method: :patch do |f| %>
 
       <div class="row mb-3">
@@ -66,7 +62,7 @@
         <div class="col-md-12 text-right">
         <%= f.submit "編集完了",class: "btn btn-success"%>
         &nbsp;&nbsp;&nbsp;
-         <%= link_to "退会する", public_unsubscribe_path(@end_user), class: "btn btn-danger" %>
+         <%= link_to "退会する", public_unsubscribe_path, class: "btn btn-danger" %>
         </div>
       </div>
     <% end %>
