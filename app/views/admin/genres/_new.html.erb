@@ -4,14 +4,13 @@
   </div>
 </div>
 
-<div class="row">
-  <%= form_with model: @genre, url: admin_genres_path do |f| %>
-
-    <div class="col-md-4 mt-4">
-      <%= f.text_field :name, autofocus: true, placeholder:" 新規ジャンルを入力"%>
-    </div>
-    <div class="col-md-8 mt-4">
-      <%= f.submit '新規登録',class:'btn btn-success btn-block mt-3' %>
-    </div>
-  <% end %>
-</div>
+<table class="table">
+  <tbody>
+    <%= form_with model: @genre, url: admin_genres_path do |f| %>
+    <tr>
+      <th><%= f.text_field :name, autofocus: true, placeholder:" 新規ジャンルを入力"%></th>
+      <th><%= f.submit '新規登録',class:'btn btn-success btn-block' %></th>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
