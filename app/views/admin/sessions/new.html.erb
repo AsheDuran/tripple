@@ -1,57 +1,51 @@
 <div class="container">
   <div class="row m-5">
-    <div class="col-md">
       <h2>管理者ログイン</h2>
-    </div>
   </div>
 
-  <div class="row-md">
-  <div class="col-md-3 mt3"></div>
-    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-      <div class="col-md-9">
+  <div class ="col-md-4"></div>
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
-        <div class="row">
-          <div class="col-md-12 text-center">
-            <%= f.label :email,"メールアドレス" %>
-            <span>
-              <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-            </span>
-          </div>
-        </div>
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <%= f.label :email,"メールアドレス" %>
+        <span>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+        </span>
+      </div>
+    </div>
 
 
-        <div class="row">
-          <div class="col-md-12 mt-3 text-center">
-            <%= f.label :password,"パスワード" %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <span>
-              <%= f.password_field :password, autocomplete: "current-password" %>
-            </span>
-          </div>
-        </div>
+    <div class="row">
+      <div class="col-md-12 mt-3 text-center">
+        <%= f.label :password,"パスワード" %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <span>
+          <%= f.password_field :password, autocomplete: "current-password" %>
+        </span>
+      </div>
+    </div>
 
-        <% if devise_mapping.rememberable? %>
-          <div class="row">
-            <div class="col-md-12 mt-3 text-center">
-              <%= f.check_box :remember_me %>
-              <span>
-                <%= f.label :remember_me,"ログイン情報を保存しますか?" %>
-              </span>
-            </div>
-          </div>
-        <% end %>
-        <div class="row">
-          <div class="col-md-12 mt-3 text-center">
-            <%= f.submit "ログイン" %>
-          </div>
-        </div>
-    <% end %>
-
+    <% if devise_mapping.rememberable? %>
       <div class="row">
         <div class="col-md-12 mt-3 text-center">
-          <%= link_to 'ゲストログイン', admins_guest_sign_in_path, method: :post %>の方はこちら
+          <%= f.check_box :remember_me %>
+          <span>
+            <%= f.label :remember_me,"ログイン情報を保存しますか?" %>
+          </span>
         </div>
       </div>
+    <% end %>
+    <div class="row">
+      <div class="col-md-12 mt-3 text-center">
+        <%= f.submit "ログイン" %>
+      </div>
+    </div>
+  <% end %>
 
+  <div class="row">
+    <div class="col-md-12 mt-3 text-center">
+      <%= link_to 'ゲストログイン', admins_guest_sign_in_path, method: :post %>の方はこちら
     </div>
   </div>
+
 </div>
