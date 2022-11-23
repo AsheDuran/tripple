@@ -1,17 +1,16 @@
 <div class='container px-5 px-sm-0'>
   <div class='row'>
-    <% if flash[:notice] %><%= flash[:notice] %><% end %>
-    <div class='col-md-4 mt-5'>
-    <% if @end_user.id == current_end_user.id %>
-      <h2>マイページ</h2>
-    <% end %>
-    </div>
-    <div class ="col-md-5"></div>
-    <div class="col-md-2 text-right mt-5">
+    <div class='col-md-9 mt-5'>
       <% if @end_user.id == current_end_user.id %>
-        <%=link_to "♥",public_end_user_favorites_path(@end_user), class: "favorite_index" %>
-       <% end %>
+        <h2>マイページ</h2>
+        <strong style="color:#b22222;"><% if flash[:notice] %><%= flash[:notice] %><% end %></strong>
+      <% end %>
     </div>
+      <div class="col-md-2 text-right mt-5">
+        <% if @end_user.id == current_end_user.id %>
+          <%=link_to "♥",public_end_user_favorites_path(@end_user), class: "favorite_index" %>
+        <% end %>
+      </div>
   </div>
 
   <div class='row'>

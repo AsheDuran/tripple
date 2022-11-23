@@ -57,7 +57,7 @@ class Public::EndUsersController < ApplicationController
    @end_user = EndUser.find(params[:id])
    #byebug
    if @end_user.name == "サンプル 太郎"
-     redirect_to my_page_public_end_users_path , notice: 'ゲストユーザーはプロフィール編集画面へ遷移できません。'
+     redirect_to my_page_public_end_users_path , notice: 'ゲストユーザーは会員情報編集画面へ遷移できません。'
    end
  end
 
