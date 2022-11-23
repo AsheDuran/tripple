@@ -1,9 +1,7 @@
 <div class="container-md">
   <div class="row mt-5">
-    <div class="col-md-3 offset-1">
-      <h2>新規投稿</h2>
-    </div>
-     <strong class="col-md-4 text-center" style="color:#b22222;">
+    <h2 class="col-md-3 text-center">新規投稿</h2>
+    <strong class="col-md-4 text-center" style="color:#b22222;">
       <% if @spot.errors.any? %>
         <%= @spot.errors.count %>件のエラーが発生しました
     </strong>
@@ -18,9 +16,9 @@
   </div>
 
   <div class="row mt-3">
-    <div class="col-3"></div>
+    <div class="col-md-3"></div>
     <%= form_with model:@spot, url: public_spots_path, local:true do |f| %>
-      <div class="col9">
+      <!--<div class="col9">-->
 
         <div class="form-group">
           <div class="row">
@@ -94,17 +92,18 @@
             <div class="col-md-3">
               <p>公開設定</p>
             </div>
-            <div class="col-md-2 text-right">
-                <%= f.label :is_published_flag, "公開", value: true %>
-            </div>
-            <div class="col-md-1">
-                <%= f.radio_button :is_published_flag, 'true', checked: true %>
-            </div>
-            <div class="col-md-3 text-right">
-                <%= f.label :is_published_flag, "非公開", value: false %>
-            </div>
-            <div class="col-md-1">
-                <%= f.radio_button :is_published_flag,'false' %>
+            <div class="col-md-9">
+              <div class="row ">
+                <div class="col-md-12">
+                    <%= f.label :is_published_flag, "公開", value: true %>
+                    &nbsp;&nbsp;
+                    <%= f.radio_button :is_published_flag, 'true', checked: true %>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <%= f.label :is_published_flag, "非公開", value: false %>
+                    &nbsp;&nbsp;
+                    <%= f.radio_button :is_published_flag,'false' %>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -121,5 +120,5 @@
 
       </div>
     <% end %>
-  </div>
+  <!--</div>-->
 </div>
