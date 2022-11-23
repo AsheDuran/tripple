@@ -14,113 +14,96 @@
       <% end %>
     </strong>
   </div>
-aaaaaaaaaaaaaaaa
+
   <div class="row mt-3">
     <div class="col-md-3"></div>
     <div class="col-md-6">
-    <%= form_with model:@spot, url: public_spots_path, local:true do |f| %>
-      <!--<div class="col9">-->
+      <%= form_with model:@spot, url: public_spots_path, local:true do |f| %>
 
-        <div class="form-group">
-
-            <div class="col-md-3">
-              <%= f.label :image, "場所の画像" %>
-            </div>
-            <div class="col-md-9">
-              <%= f.file_field :image, accept: "image/*", class: "form-control" %>
-            </div>
-
-        </div>
-
-        <div class="form-group">
-
-            <div class="col-md-3">
-              <%= f.label :name, "場所の名称" %>
-            </div>
-            <div class="col-md-9">
-              <%= f.text_field :name, placeholder:"場所の名称" ,class: "form-control" %>
-            </div>
-
-        </div>
-
-        <div class="form-group">
-
-            <div class="col-md-3">
-              <%= f.label :explanation, "場所の説明" %>
-            </div>
-            <div class="col-md-9">
-              <%= f.text_area :explanation, placeholder:"ここに場所の説明文を記述します", class: "form-control" %>
-            </div>
-
-        </div>
-
-        <div class="form-group">
-
-            <div class="col-md-3">
-              <%= f.label :prefecture_id,"都道府県" %>
-            </div>
-            <div class="col-md-9">
-              <%= f.collection_select :prefecture_id, Prefecture.all, :id, :name, { include_blank: '--選択してください--'} %>
-            </div>
-
-        </div>
-
-        <div class="form-group">
-
-            <div class="col-md-3">
-              <%= f.label :address, "所在地" %>
-            </div>
-            <div class="col-md-9">
-              <%= f.text_field :address, placeholder:"所在地を入力してください" ,class: "form-control" %>
-            </div>
-
-        </div>
-
-
-        <div class="form-group">
-
-            <div class="col-md-3">
-              <%= f.label :genre_id,"ジャンル" %>
-            </div>
-            <div class="col-md-9">
-              <%= f.collection_select :genre_id, Genre.all, :id, :name, { include_blank: '--選択してください--'} %>
-           </div>
-        </div>
-
-        <div class="form-group">
-
-            <div class="col-md-3">
-              <p>公開設定</p>
-            </div>
-            <div class="col-md-9">
-              <div class="row ">
-                <div class="col-md-12">
-                    <%= f.label :is_published_flag, "公開", value: true %>
-                    &nbsp;&nbsp;
-                    <%= f.radio_button :is_published_flag, 'true', checked: true %>
-                    &nbsp;&nbsp;&nbsp;&nbsp;
-                    <%= f.label :is_published_flag, "非公開", value: false %>
-                    &nbsp;&nbsp;
-                    <%= f.radio_button :is_published_flag,'false' %>
-                </div>
-              </div>
-            </div>
-
-        </div>
-        <div class="form-group">
-          <%= render 'star_form', f: f %>
-        </div>
-
-        <div class="form-group">
-          <div class=" mt-3 mb-5">
-            <div class="col-6 offset-3">
-              <%= f.submit "投稿する",class: "btn btn-success"%>
-           </div>
+        <div class="row mb-3">
+          <div class="col-md-3">
+            <%= f.label :image, "場所の画像" %>
+          </div>
+          <div class="col-md-9">
+            <%= f.file_field :image, accept: "image/*", class: "form-control" %>
           </div>
         </div>
 
+        <div class="row mb-3">
+          <div class="col-md-3">
+            <%= f.label :name, "場所の名称" %>
+          </div>
+          <div class="col-md-9">
+            <%= f.text_field :name, placeholder:"場所の名称" ,class: "form-control" %>
+          </div>
+        </div>
 
-    <% end %>
-     </div>
+        <div class="row mb-3">
+          <div class="col-md-3">
+            <%= f.label :explanation, "場所の説明" %>
+          </div>
+          <div class="col-md-9">
+            <%= f.text_area :explanation, placeholder:"ここに場所の説明文を記述します", class: "form-control" %>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col-md-3">
+            <%= f.label :prefecture_id,"都道府県" %>
+          </div>
+          <div class="col-md-9">
+            <%= f.collection_select :prefecture_id, Prefecture.all, :id, :name, { include_blank: '--選択してください--'} %>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col-md-3">
+            <%= f.label :address, "所在地" %>
+          </div>
+          <div class="col-md-9">
+            <%= f.text_field :address, placeholder:"所在地を入力してください" ,class: "form-control" %>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col-md-3">
+            <%= f.label :genre_id,"ジャンル" %>
+          </div>
+          <div class="col-md-9">
+            <%= f.collection_select :genre_id, Genre.all, :id, :name, { include_blank: '--選択してください--'} %>
+         </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col-md-3">
+            <p>公開設定</p>
+          </div>
+          <div class="col-md-9">
+            <div class="row ">
+              <div class="col-md-12">
+                  <%= f.label :is_published_flag, "公開", value: true %>
+                  &nbsp;&nbsp;
+                  <%= f.radio_button :is_published_flag, 'true', checked: true %>
+                  &nbsp;&nbsp;&nbsp;&nbsp;
+                  <%= f.label :is_published_flag, "非公開", value: false %>
+                  &nbsp;&nbsp;
+                  <%= f.radio_button :is_published_flag,'false' %>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <%= render 'star_form', f: f %>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col-md-3"></div>
+          <div class="col-md-3  text-center">
+            <%= f.submit "投稿する",class: "btn btn-success"%>
+          </div>
+        </div>
+    </div>
+      <% end %>
   </div>
 </div>
