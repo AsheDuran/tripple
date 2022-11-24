@@ -1,5 +1,6 @@
 class Public::SpotsController < ApplicationController
   before_action :authenticate_end_user!
+  before_action :correct_user, only:[:edit, :update]
 
   def new
     @spot = Spot.new
@@ -20,7 +21,6 @@ class Public::SpotsController < ApplicationController
   def show
     @spot = Spot.find(params[:id])
     @end_user = @spot.end_user
-    #byebug
     @comment = Comment.new
   end
 
@@ -57,12 +57,13 @@ class Public::SpotsController < ApplicationController
                   published.page(params[:page]).
                   or (Spot.where(name: params[:name])).
                   published.page(params[:page])
-    p @spots
     render :index
   end
 
-
-
+  def correct_user
+    @spot = Spot.find(params[:id])
+    redirect_to public_spots_path unless @spot.end_user == current_end_user
+  end
 
 
   private
