@@ -4,7 +4,7 @@
 
     <div class="search_form col-md-9 text-right">
       <%= form_with url: public_search_path, local: true, method: :get do |f| %>
-        <%= f.text_field :name,value: params[:name], placeholder:"🔍名称を入力" %>
+        <%= f.text_field :name, placeholder:"🔍名称を入力" %>
         <%= f.select :prefecture_id, options_from_collection_for_select(Prefecture.all, :id, :name), { include_blank: '--都道府県--'}%>
         <%= f.select :genre_id, options_from_collection_for_select(Genre.all, :id, :name), { include_blank: '--ジャンル--'} %>
         <!--options_from_collection_for_selectの記述でプルダウンにデータが入る-->
@@ -35,4 +35,3 @@
     </div>
   </div>
 </div>
-
