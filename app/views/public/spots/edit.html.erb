@@ -1,13 +1,11 @@
 <div class="container">
   <div class="row mt-5">
-    <div class="col-md-4 offset-1">
-      <h2>投稿編集</h2>
-    </div>
-    <strong class="col-md-4 text-center" style="color:#b22222;">
+    <h2 class="col-md-3 text-center">投稿編集</h2>
+    <strong class="col-md-4" style="color:#b22222;">
       <% if @spot.errors.any? %>
         <%= @spot.errors.count %>件のエラーが発生しました
     </strong>
-    <strong class="col-md-4" style="color:#b22222;">
+    <strong class="col-md-4 ml-2" style="color:#b22222;">
         <ul>
           <% @spot.errors.full_messages.each do |message| %>
             <li><%= message %></li>
