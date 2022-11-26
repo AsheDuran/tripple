@@ -55,6 +55,9 @@ class Public::EndUsersController < ApplicationController
 
  def ensure_guest_end_user
    @end_user = EndUser.find(params[:id])
+   if @end_user != current_end_user
+     redirect_to my_page_public_end_users_path
+   end
    #byebug
    if @end_user.name == "サンプル 太郎"
      redirect_to my_page_public_end_users_path , notice: 'ゲストユーザーは会員情報編集画面へ遷移できません。'
