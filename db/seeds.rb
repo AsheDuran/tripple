@@ -19,6 +19,10 @@ if Rails.env.development?
 
   end
 
+elsif Rails.env.production?
+  Admin.create!(email: "test@test.com",
+              password: "test11")
+
 end
 
 prefectures = %w{
