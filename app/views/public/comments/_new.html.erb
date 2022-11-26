@@ -18,14 +18,14 @@
   <div class ="col-md-3">
     <%= image_tag comment.end_user.get_profile_image(100,100) %>
   </div>
-  <div class ="col-md-3">
-    <%= comment.end_user.name %>
-    <% if comment.end_user == current_end_user %>
-      <strong><%= link_to "削除", public_spot_comment_path(comment.spot.id, comment.id), method: :delete ,style: "color:red;" %></strong>
-    <% end %>
-
+  <div class ="col-md-4">
+    <div style="font-size:13px"><%= comment.end_user.name %></div>
+        <% if comment.end_user == current_end_user %>
+          <strong style="display:block"><%= link_to "削除", public_spot_comment_path(comment.spot.id, comment.id), method: :delete ,style: "color:red;" %></strong>
+        <% end %>
   </div>
-  <div class ="col-md-6">
+
+  <div class ="col-md-5">
     <div class ="row">
       <div class ="col-md">
         <%= comment.created_at.strftime('%Y/%m/%d') %>
