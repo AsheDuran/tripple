@@ -3,11 +3,11 @@
     <div class="col-md-4 text-center">
       <h2>会員情報編集</h2>
     </div>
-    <strong class="col-md-4 text-center" style="color:#b22222;">
+    <strong class="col-md-3" style="color:#b22222;">
       <% if @end_user.errors.any? %>
         <%= @end_user.errors.count %>件のエラーが発生しました
     </strong>
-    <strong class="col-md-4" style="color:#b22222;">
+    <strong class="col-md-4 ml-2" style="color:#b22222;">
         <ul>
           <% @end_user.errors.full_messages.each do |message| %>
             <li><%= message %></li>
