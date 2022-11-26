@@ -53,18 +53,18 @@ class Public::EndUsersController < ApplicationController
    @favorite_spots = Spot.find(favorites)
  end
 
- def ensure_guest_end_user
-   @end_user = EndUser.find(params[:id])
-   #byebug
-   if @end_user.name == "サンプル 太郎"
-     redirect_to my_page_public_end_users_path , notice: 'ゲストユーザーは会員情報編集画面へ遷移できません。'
-   end
- end
+ # def ensure_guest_end_user
+ #   @end_user = EndUser.find(params[:id])
+ #   #byebug
+ #   if @end_user.name == "サンプル 太郎"
+ #     redirect_to my_page_public_end_users_path , notice: 'ゲストユーザーは会員情報編集画面へ遷移できません。'
+ #   end
+ # end
 
  private
 
- # def end_user_params
- #  params.require(:end_user).permit(:last_name, :first_name, :introduction, :profile_image)
- # end
+ def end_user_params
+  params.require(:end_user).permit(:last_name, :first_name, :introduction, :profile_image)
+ end
 
 end
