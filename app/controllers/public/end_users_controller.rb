@@ -4,7 +4,6 @@ class Public::EndUsersController < ApplicationController
 
  def show
    @end_user = EndUser.find(params[:id])
-   #byebug
    if @end_user.id == current_end_user.id#自分だったら、全投稿が表示される。
      @spots = @end_user.spots
    else
@@ -12,11 +11,10 @@ class Public::EndUsersController < ApplicationController
    end
  end
 
- def my_page#showでcurrent_end_userを使用したら、ややこしかったので、こっちに記述した。
-   #byebug
+ def my_page#showでcurrent_end_userを使用すると、投稿者に遷移できないため、my_pageを記述した。
    @end_user = current_end_user
    @spots = @end_user.spots
-   render :show#本当はshowページに記載するため、render先はshow
+   render :show#他の会員のshowページと兼用
  end
 
  def edit
@@ -58,7 +56,6 @@ class Public::EndUsersController < ApplicationController
    if @end_user != current_end_user
      redirect_to my_page_public_end_users_path
    end
-   #byebug
    if @end_user.name == "サンプル 太郎"
      redirect_to my_page_public_end_users_path , notice: 'ゲストユーザーは会員情報編集画面へ遷移できません。'
    end
