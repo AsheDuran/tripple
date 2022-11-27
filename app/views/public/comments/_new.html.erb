@@ -21,7 +21,9 @@
   <div class ="col-md-4">
     <div style="font-size:13px"><%= comment.end_user.name %></div>
         <% if comment.end_user == current_end_user %>
-          <strong style="display:block"><%= link_to "削除", public_spot_comment_path(comment.spot.id, comment.id), method: :delete ,style: "color:red;" %></strong>
+          <strong style="display:block">
+            <%= link_to "削除", public_spot_comment_path(comment.spot.id, comment.id), method: :delete ,style: "color:red;" %>
+          </strong>
         <% end %>
   </div>
 
