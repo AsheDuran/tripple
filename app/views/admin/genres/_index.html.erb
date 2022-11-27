@@ -6,7 +6,13 @@
       <th><%= genre.name %></th>
       <th></th>
       <th></th>
-      <th><%= link_to '削除',  admin_genre_path(genre), method: :delete, class:'btn btn-danger btn-block' %></th>
+      <th>
+        <% if genre.name != "施設" %>
+          <% if genre.name != "自然" %>
+            <%= link_to '削除',  admin_genre_path(genre), method: :delete, class:'btn btn-danger btn-block' %>
+          <% end %>
+        <% end %>
+      </th>
     </tr>
     <% end %>
   </tbody>
