@@ -21,6 +21,9 @@ class Public::SpotsController < ApplicationController
   def show
     @spot = Spot.find(params[:id])
     @end_user = @spot.end_user
+    if !@spot.is_published_flag && end_user_current?(@end_user)
+     redirect_to public_spots_path
+    end
     @comment = Comment.new
   end
 
@@ -49,7 +52,6 @@ class Public::SpotsController < ApplicationController
   end
 
   def search
-    # @spots = Spot.where(prefecture_id: params[:prefecture_id], genre_id: params[:genre_id]).published "or"条件足してない記述
     @spots = Spot.where(prefecture_id: params[:prefecture_id]).
                   published.
                   page(params[:page]).
@@ -67,6 +69,11 @@ class Public::SpotsController < ApplicationController
 
 
   private
+
+
+  def end_user_current?(end_user)
+    end_user != current_end_user
+  end
 
   def spot_params
     params.require(:spot).permit(:name, :explanation, :prefecture_id, :address, :genre_id, :image, :end_user_id, :is_published_flag, :star)
