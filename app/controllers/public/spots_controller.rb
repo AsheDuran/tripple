@@ -19,12 +19,17 @@ class Public::SpotsController < ApplicationController
   end
 
   def show
-    @spot = Spot.find(params[:id])
-    @end_user = @spot.end_user
-    if !@spot.is_published_flag && end_user_current?(@end_user)
-     redirect_to public_spots_path
+    @spot = Spot.find_by(id: params[:id])
+    if @spot.nil?
+      flash[:notice] = "指定した投稿は見つかりませんでした。(削除された可能性があります)"
+      redirect_to public_spots_path
+    else
+      @end_user = @spot.end_user
+      if !@spot.is_published_flag && end_user_current?(@end_user)
+        redirect_to public_spots_path
+      end
+      @comment = Comment.new
     end
-    @comment = Comment.new
   end
 
   def index

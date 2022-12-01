@@ -7,10 +7,8 @@
       <th></th>
       <th></th>
       <th>
-        <% if genre.name != "施設" %>
-          <% if genre.name != "自然" %>
+        <% unless ["施設", "自然"].include?(genre.name) %>
             <%= link_to '削除',  admin_genre_path(genre), method: :delete, class:'btn btn-danger btn-block' %>
-          <% end %>
         <% end %>
       </th>
     </tr>
