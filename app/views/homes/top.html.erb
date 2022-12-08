@@ -14,7 +14,7 @@
         <% @spots.each do |spot| %>
           <div>
             <%= image_tag spot.image, class: 'img-cover' %><br>
-            <%= spot.name %>
+            <strong style= "color:#008080;"><%= spot.name %></strong>
           </div>
         <% end %>
       </div>
