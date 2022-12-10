@@ -1,13 +1,14 @@
 <h4><%= end_user.name %>&nbsp;&nbsp;さんの投稿</h4>
 <table class="table">
+  
   <thead>
     <tr>
       <th>場所の名前</th>
       <th>いいね数</th>
       <th>おすすめ度</th>
-
     </tr>
   </thead>
+  
   <tbody>
     <% spots.each do |spot| %>
       <tr>
@@ -31,5 +32,6 @@
       </script>
     <% end %>
   </tbody>
+  
 </table>
 
