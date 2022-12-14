@@ -31,7 +31,7 @@ ER図：https://drive.google.com/file/d/1isZBmflnjW8S5MXZ1B_8cz1NCzErOpPX/view?u
 テーブル定義書：https://docs.google.com/spreadsheets/d/1Nhxb6qku4yu4MT7kL4VXmkzQ4-depulSqDnZ02BR-o4/edit?usp=sharing
 
 ## 開発環境
-- OS：Linux(CentOS)
+- OS：Amazon Linux
 - 言語：HTML,CSS,JavaScript,Ruby,SQL
 - フレームワーク：Ruby on Rails
 - JSライブラリ：jQuery
