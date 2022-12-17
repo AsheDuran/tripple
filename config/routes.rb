@@ -12,10 +12,10 @@ Rails.application.routes.draw do
   devise_for :admins, skip: [:registrations, :passwords], controllers: {#skipオプションで不要なルーティングを削除
     sessions: "admin/sessions"
   }#生成したコントローラーがどこに存在するかを記述
-  
+
   devise_scope :admin do#guest_sign_in機能の際追加
     post 'admins/guest_sign_in', to: 'admin/sessions#guest_sign_in'
-  end 
+  end
 
   root to: "homes#top"
   get "home/derivation"=>"homes#derivation", as: "derivation"
@@ -29,7 +29,6 @@ Rails.application.routes.draw do
       resources :comments, only: [:create, :destroy]
     end
     get "search" => "spots#search"
-    resources :prefectures
     resources :genres
     resources :end_users do#controllerでmy_pageを定義したからdo-endの間にget :my_page, on: :collectionを記述
       get :my_page, on: :collection
