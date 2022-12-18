@@ -39,4 +39,4 @@ ER図：https://drive.google.com/file/d/1isZBmflnjW8S5MXZ1B_8cz1NCzErOpPX/view?u
 - IDE：Cloud9
 
 ## 使用素材
-- 使用検討中です。
+- 自身で撮影した写真
