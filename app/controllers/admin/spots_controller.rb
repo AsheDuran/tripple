@@ -17,13 +17,13 @@ class Admin::SpotsController < ApplicationController
   end
 
   def search
-    @spots = Spot.where(prefecture_id: params[:prefecture_id]).
-                  page(params[:page]).or (Spot.where(genre_id: params[:genre_id])).
-                  page(params[:page]).or (Spot.where(name: params[:name])).
-                  page(params[:page])
+    query = Spot.published
+    query = query.where(prefecture_id: params[:prefecture_id]) if params[:prefecture_id].present?
+    query = query.where(genre_id: params[:genre_id]) if params[:genre_id].present?
+    query = query.where("name LIKE ?", "%#{params[:name]}%") if params[:name].present?
+    @spots = query.page(params[:page])
     render :index
   end
-
 
   private
 
