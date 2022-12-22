@@ -47,7 +47,7 @@ class Public::SessionsController < Devise::SessionsController
     ## アカウントを取得できなかった場合、このメソッドを終了する
     return if !@end_user
     ## 【処理内容2】 取得したアカウントのパスワードと入力されたパスワードが一致してるかを判別
-    if @end_user.valid_password?(params[:end_user][:password]) && (@end_user.is_deleted == true)
+    if @end_user.valid_password?(params[:end_user][:password]) && (@end_user.is_deleted)
       ## 【処理内容3】
       redirect_to new_end_user_registration_path
     end

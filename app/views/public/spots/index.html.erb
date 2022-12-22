@@ -16,9 +16,9 @@
 
   <div class="row mt-2">
     <%  @spots.each do |spot| %>
-      <div class="spot_index col-md-3 p-2 text-center">
+      <div class="spot_index col-md-3 p-3 text-center">
         <%= link_to public_spot_path(spot) do %>
-          <%= image_tag spot.get_image(200, 200) %><br>
+          <%= image_tag spot.get_image(175, 175) %><br>
           <%= spot.name %>
         <% end %>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -31,7 +31,7 @@
 
   <div class="row my-md-2">
     <div class="col-md-5"></div>
-    <div class="col-md-3">
+    <div class="col-md-4">
       <%= paginate @spots %>
     </div>
   </div>
