@@ -17,7 +17,7 @@ class Admin::SpotsController < ApplicationController
   end
 
   def search
-    query = Spot.published
+    query = Spot.all
     query = query.where(prefecture_id: params[:prefecture_id]) if params[:prefecture_id].present?
     query = query.where(genre_id: params[:genre_id]) if params[:genre_id].present?
     query = query.where("name LIKE ?", "%#{params[:name]}%") if params[:name].present?
